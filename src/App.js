@@ -1,7 +1,16 @@
+import { ThemeProvider } from 'styled-components';
+import Globalstyles from 'Global';
+
 import Layout from 'Layout';
+import theme from 'theme';
 
 function App() {
-  return <Layout>content...</Layout>;
+  return (
+    <ThemeProvider theme={theme}>
+      <Globalstyles />
+      <Layout>content...</Layout>
+    </ThemeProvider>
+  );
 }
 
 export default App;
