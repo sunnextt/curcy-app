@@ -1,4 +1,4 @@
-export const primaryFont = '"Museo Sans Rounded", sans-serif';
+export const primaryFont = "'Museo Sans Rounded', sans-serif";
 
 export const typeScale = {
   header1: '3.5rem',

@@ -11,4 +11,5 @@ export const Li = styled.li`
   display: inline-block;
   padding: 0 1rem;
   color: ${({ theme }) => theme.colors.blue[100]};
+  font-weight: 500;
 `;
