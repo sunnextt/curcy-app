@@ -24,19 +24,20 @@ const Header = props => {
     <>
       <HeaderContext>
         <img src="/logo.png" className="logo" alt="" />
-        {window.innerWidth > 756 ? (
-          <>
-            <Nav />
-            <div className="button-group">
-              <Button type="ghost" color="primary" _backgroundColor="primary">
-                Sign In
-              </Button>
-              <Button>Get Started</Button>
-            </div>
-          </>
-        ) : (
-          <CgMenuRight size={20} color={colors.blue[100]} className="menu-icon" onClick={onOpen} />
-        )}
+        <Nav style={{ display: window.innerWidth <= 756 ? 'none' : 'inline-block' }} />
+        <div className="button-group">
+          <Button type="ghost" color="primary" _backgroundColor="primary">
+            Sign In
+          </Button>
+          <Button>Get Started</Button>
+        </div>
+        <CgMenuRight
+          size={20}
+          color={colors.blue[100]}
+          className="menu-icon"
+          onClick={onOpen}
+          style={{ display: window.innerWidth <= 756 ? 'block' : 'none' }}
+        />
       </HeaderContext>
       <Drawer placement="right" closable onClose={onClose} visible={visible}>
         <Nav orientation="mobile" />

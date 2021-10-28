@@ -13,6 +13,12 @@ export const HeaderContext = styled.header`
   .menu-icon {
     margin-left: auto;
   }
+  .button-group {
+    display: block;
+    @media only screen and (max-width: 756px) {
+      display: none;
+    }
+  }
   button {
     margin: 0 0 0 1rem;
   }
