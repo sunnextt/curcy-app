@@ -10,9 +10,14 @@ export const Col = styled(Col_)`
     }
   }
 
-  h1 {
+  h1,
+  p {
     color: ${({ theme }) => theme.colors.blue[100]} !important;
     margin: 0;
+  }
+
+  p {
+    margin: 1rem 0;
   }
 
   .hero-text--large {
