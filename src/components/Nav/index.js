@@ -1,16 +1,21 @@
 import { Li, Ul, NavContext } from './styled';
+import propTypes from 'prop-types';
 
-const Nav = () => {
+const Nav = props => {
   return (
     <NavContext>
       <Ul>
-        <Li>Home</Li>
-        <Li>About Us</Li>
-        <Li>F.A.Q</Li>
-        <Li>Contact Us</Li>
+        <Li {...props}>Home</Li>
+        <Li {...props}>About Us</Li>
+        <Li {...props}>F.A.Q</Li>
+        <Li {...props}>Contact Us</Li>
       </Ul>
     </NavContext>
   );
+};
+
+Nav.propTypes = {
+  orientation: propTypes.oneOf(['mobile', 'desktop']),
 };
 
 export default Nav;

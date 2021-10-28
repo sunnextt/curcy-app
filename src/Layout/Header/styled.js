@@ -9,10 +9,15 @@ export const HeaderContext = styled.header`
     height: 2rem;
     margin-right: 3.5rem;
   }
-  .button-group {
+  .button-group,
+  .menu-icon {
     margin-left: auto;
   }
   button {
     margin: 0 0 0 1rem;
+  }
+
+  @media only screen and (max-width: 756px) {
+    padding: 1rem 1.5rem;
   }
 `;
