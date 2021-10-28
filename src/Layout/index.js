@@ -1,14 +1,12 @@
 import { Layout } from 'antd';
-
 import Header from './Header';
-
-const { Content } = Layout;
+import Home from 'Pages/Home';
 
 const LayoutContext = props => {
   return (
     <Layout>
       <Header />
-      <Content>{props.children}</Content>
+      <Home />
     </Layout>
   );
 };

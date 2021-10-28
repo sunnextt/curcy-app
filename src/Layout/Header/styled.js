@@ -5,6 +5,8 @@ export const HeaderContext = styled.header`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  z-index: 500;
+  background: ${({ theme }) => theme.colors.white[100]};
   .logo {
     height: 2rem;
     margin-right: 3.5rem;
