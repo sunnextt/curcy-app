@@ -36,6 +36,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.ant-layout{    
+    background-color: ${({ theme }) => theme.colors.white[100]};
+}
   
 // h1 {
 //     line-height: 4.3rem;

@@ -8,4 +8,7 @@ export const colors = {
   blue: {
     100: '#001950',
   },
+  yellow: {
+    100: '#FCC700',
+  },
 };

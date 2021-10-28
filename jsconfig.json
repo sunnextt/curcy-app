@@ -2,5 +2,5 @@
   "compilerOptions": {
     "baseUrl": "src"
   },
-  "include": ["src", "src/tsconfig.json"]
+  "include": ["src", "src/style.d.ts"]
 }

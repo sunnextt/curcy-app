@@ -13,6 +13,9 @@ declare module 'styled-components' {
       blue: {
         [index: number]: string;
       };
+      yellow: {
+        [index: number]: string;
+      };
     };
     primaryFont: string;
     typeScale: {

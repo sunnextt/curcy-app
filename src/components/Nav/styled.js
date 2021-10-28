@@ -5,7 +5,9 @@ export const NavContext = styled.nav`
   padding: 0 5px;
 `;
 
-export const Ul = styled.ul``;
+export const Ul = styled.ul`
+  margin-bottom: 0;
+`;
 
 export const Li = styled.li`
   display: inline-block;

@@ -3,6 +3,7 @@ import Globalstyles from 'Global';
 
 import Layout from 'Layout';
 import theme from 'theme';
+import './App.css';
 
 function App() {
   return (
