@@ -1,10 +1,11 @@
-import { HeroContext, Background, BackgroundChild, Col } from './styled';
+import { Background, BackgroundChild, Col } from './styled';
 import HeroImg from 'assets/png/hero.png';
 import Button from 'components/Buttons';
+import Row from 'components/Row';
 
 const Hero = () => {
   return (
-    <HeroContext>
+    <Row>
       <Col xs={24} sm={24} md={12}>
         <h1>Welcome to Currenxi.ng</h1>
         <h1 className="hero-text--large">Buying & Selling Digital Assets Made Easy</h1>
@@ -17,7 +18,7 @@ const Hero = () => {
       </Col>
       <Background />
       <BackgroundChild />
-    </HeroContext>
+    </Row>
   );
 };
 

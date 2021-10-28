@@ -1,23 +1,7 @@
 import styled from 'styled-components';
-import { Row, Col as _Col } from 'antd';
+import Col_ from 'components/Col';
 
-export const HeroContext = styled(Row)`
-  position: relative;
-  padding: 3.5rem 10rem;
-
-  @media only screen and (max-width: 756px) {
-    padding: 1rem;
-  }
-`;
-
-export const Col = styled(_Col)`
-  background: transparent;
-  z-index: 500;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
+export const Col = styled(Col_)`
   .hero {
     width: 100%;
 
@@ -40,12 +24,6 @@ export const Col = styled(_Col)`
     @media only screen and (max-width: 756px) {
       width: 60%;
     }
-  }
-
-  @media only screen and (max-width: 756px) {
-    align-items: center;
-    text-align: center;
-    padding: 2.5rem 0;
   }
 `;
 
