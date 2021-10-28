@@ -6,8 +6,12 @@ export const HeaderContext = styled(Layout.Header)`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  z-index: 500;
+  z-index: 1000;
   background: ${({ theme }) => theme.colors.white[100]};
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   .logo {
     height: 2rem;
     margin-right: 3.5rem;

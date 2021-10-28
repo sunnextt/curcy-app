@@ -9,7 +9,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Globalstyles />
-      <Layout>content...</Layout>
+      <div className="theContent">
+        <Layout>content...</Layout>
+      </div>
     </ThemeProvider>
   );
 }

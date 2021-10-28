@@ -40,6 +40,10 @@ body {
 .ant-layout{    
     background-color: ${({ theme }) => theme.colors.white[100]};
 }
+
+.theContent{
+    margin-top: 4.5rem;
+}
   
 // h1 {
 //     line-height: 4.3rem;
