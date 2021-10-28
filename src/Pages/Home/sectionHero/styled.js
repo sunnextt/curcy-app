@@ -8,19 +8,22 @@ export const HeroContext = styled(Row)`
   @media only screen and (max-width: 756px) {
     padding: 1rem;
   }
-
-  @media only screen and (min-width: 1350px) {
-    padding: 0 10rem;
-  }
 `;
 
 export const Col = styled(_Col)`
   background: transparent;
   z-index: 500;
-  padding-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 
   .hero {
     width: 100%;
+
+    @media only screen and (max-width: 756px) {
+      width: 60%;
+    }
   }
 
   h1 {
@@ -33,10 +36,16 @@ export const Col = styled(_Col)`
     font-weight: 700;
     line-height: 6.5rem;
     margin: 1rem 0 2rem 0;
+
+    @media only screen and (max-width: 756px) {
+      width: 60%;
+    }
   }
 
-  @media only screen and (max-width: 1080px) {
-    padding-top: 5rem;
+  @media only screen and (max-width: 756px) {
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 0;
   }
 `;
 

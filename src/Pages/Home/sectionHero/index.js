@@ -12,7 +12,7 @@ const Hero = () => {
           Get Started
         </Button>
       </Col>
-      <Col xs={24} sm={24} md={12}>
+      <Col flex xs={24} sm={24} md={12}>
         <img src={HeroImg} alt="" className="hero" />
       </Col>
       <Background />
