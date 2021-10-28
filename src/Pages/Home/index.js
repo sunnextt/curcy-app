@@ -5,6 +5,7 @@ const Home = () => {
   return (
     <Layout.Content>
       <Hero />
+      <div>panchae</div>
     </Layout.Content>
   );
 };

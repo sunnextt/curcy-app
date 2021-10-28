@@ -3,11 +3,41 @@ import { Row, Col as _Col } from 'antd';
 
 export const HeroContext = styled(Row)`
   position: relative;
+  padding: 3.5rem 10rem;
+
+  @media only screen and (max-width: 756px) {
+    padding: 1rem;
+  }
+
+  @media only screen and (min-width: 1350px) {
+    padding: 0 10rem;
+  }
 `;
 
 export const Col = styled(_Col)`
   background: transparent;
   z-index: 500;
+  padding-top: 10rem;
+
+  .hero {
+    width: 100%;
+  }
+
+  h1 {
+    color: ${({ theme }) => theme.colors.blue[100]} !important;
+    margin: 0;
+  }
+
+  .hero-text--large {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 6.5rem;
+    margin: 1rem 0 2rem 0;
+  }
+
+  @media only screen and (max-width: 1080px) {
+    padding-top: 5rem;
+  }
 `;
 
 export const Background = styled.div`
@@ -19,6 +49,7 @@ export const Background = styled.div`
   z-index: 200;
   background: ${({ theme }) => theme.colors.white[200]}b2;
   backdrop-filter: blur(100px);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);
 `;
 
 export const BackgroundChild = styled.div`
@@ -42,15 +73,30 @@ export const BackgroundChild = styled.div`
     height: 200%;
     border-radius: 50%;
     background: ${({ theme }) => theme.colors.yellow[100]};
+
+    @media only screen and (max-width: 756px) {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &::before {
     top: -50%;
     left: -350%;
+
+    @media only screen and (max-width: 756px) {
+      top: -50%;
+      left: -30%;
+    }
   }
 
   &::after {
     top: -200%;
-    left: 150%;
+    left: 50%;
+
+    @media only screen and (max-width: 756px) {
+      top: -20%;
+      left: 30%;
+    }
   }
 `;

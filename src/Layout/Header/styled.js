@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Layout } from 'antd';
 
-export const HeaderContext = styled.header`
+export const HeaderContext = styled(Layout.Header)`
   padding: 1rem 10rem;
   display: flex;
   align-items: center;
