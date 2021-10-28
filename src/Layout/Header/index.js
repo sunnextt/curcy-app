@@ -7,10 +7,12 @@ const Header = props => {
     <HeaderContext>
       <img src="/logo.png" className="logo" alt="" />
       <Nav />
-      <Button type="ghost" color="primary" backgroundColor="primary">
-        Sign In
-      </Button>
-      <Button>Get Started</Button>
+      <div className="button-group">
+        <Button type="ghost" color="primary" _backgroundColor="primary">
+          Sign In
+        </Button>
+        <Button>Get Started</Button>
+      </div>
     </HeaderContext>
   );
 };
