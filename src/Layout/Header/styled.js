@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderContext = styled.header`
-  padding: 1rem 5rem;
+  padding: 1rem 10rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
