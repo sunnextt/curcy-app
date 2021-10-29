@@ -1,6 +1,5 @@
-import Row from 'components/Row';
 import Col from 'components/Col';
-import { CardLeft, CardRight } from './styled';
+import { Row, CardLeft, CardRight } from './styled';
 import HeroImg from 'assets/png/hero4.png';
 
 const getStarted = () => {

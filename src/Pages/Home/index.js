@@ -1,9 +1,9 @@
 import { Layout } from 'antd';
 import Hero from './sectionHero';
 import About from './sectionAbout';
-import Story from './ourStory';
+import Story from './sectionOurStory';
 import WhyCurrenxi from './sectionWhyCurrenxi';
-import GetStarted from './getStarted';
+import GetStarted from './sectionGetStarted';
 
 const Home = () => {
   return (

@@ -1,10 +1,16 @@
 import Card from 'components/Card';
 import styled from 'styled-components';
 import background from 'assets/png/bgPattern2.png';
+import Row_ from 'components/Row';
+
+export const Row = styled(Row_)`
+  padding: 7.5rem 10rem;
+`;
 
 const genericStyle = `
   text-align: left;
   justify-content: left;
+  border-radius: 16px;
 `;
 
 export const CardLeft = styled(Card)`
