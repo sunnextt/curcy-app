@@ -11,9 +11,10 @@ export const Row = styled(Row_)`
 `;
 
 export const CardQuestion = styled(Card)`
-  background: ${({ theme }) => theme.colors.white[300]};
-  color: ${({ theme }) => theme.colors.blue[100]};
+  background: ${({ theme, active }) => (active ? theme.colors.blue[100] : theme.colors.white[300])};
+  color: ${({ theme, active }) => (active ? theme.colors.yellow[100] : theme.colors.blue[100])};
   margin-bottom: 5px;
+  cursor: pointer;
 
   .ant-card-body {
     padding: 1rem;
@@ -24,4 +25,5 @@ export const CardAnswer = styled(Card)`
   background: ${({ theme }) => theme.colors.white[300]};
   color: ${({ theme }) => theme.colors.blue[100]};
   padding-bottom: 5rem;
+  text-align: left;
 `;
