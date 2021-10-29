@@ -2,6 +2,7 @@ import { Layout } from 'antd';
 import Hero from './sectionHero';
 import About from './sectionAbout';
 import Story from './ourStory';
+import WhyCurrenxi from './sectionWhyCurrenxi';
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Hero />
       <About />
       <Story />
+      <WhyCurrenxi />
     </Layout.Content>
   );
 };

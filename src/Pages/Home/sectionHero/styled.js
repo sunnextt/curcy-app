@@ -11,6 +11,7 @@ export const Col = styled(Col_)`
   }
 
   h1,
+  h2,
   p {
     color: ${({ theme }) => theme.colors.blue[100]} !important;
     margin: 0;

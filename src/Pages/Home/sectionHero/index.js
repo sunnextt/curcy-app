@@ -7,9 +7,9 @@ const Hero = () => {
   return (
     <Row>
       <Col xs={24} sm={24} md={12}>
-        <h1>Welcome to Currenxi.ng</h1>
+        <h2>Welcome to Currenxi.ng</h2>
         <h1 className="hero-text--large">Buying & Selling Digital Assets Made Easy</h1>
-        <Button color="secondary" _backgroundColor="primary">
+        <Button color="secondary" backgroundcolor="primary">
           Get Started
         </Button>
       </Col>

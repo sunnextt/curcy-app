@@ -8,13 +8,13 @@ const Button = props => {
 Button.defaultProps = {
   type: 'primary',
   color: 'primary',
-  _backgroundColor: 'secondary',
+  backgroundcolor: 'secondary',
 };
 
 Button.propTypes = {
   type: propTypes.oneOf(['primary', 'ghost']),
   color: propTypes.oneOf(['primary', 'secondary']),
-  _backgroundColor: propTypes.oneOf(['primary', 'secondary']),
+  backgroundcolor: propTypes.oneOf(['primary', 'secondary']),
 };
 
 export default Button;

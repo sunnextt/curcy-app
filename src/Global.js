@@ -45,17 +45,17 @@ body {
     margin-top: 4.5rem;
 }
   
-// h1 {
-//     line-height: 4.3rem;
-//     font-size: ${props => props.theme.typeScale.header1};
-// }
-// h2 {
-//     line-height: 2.8rem;
-//     font-size: ${props => props.theme.typeScale.header2};
-// }
-// h3 {font-size: ${props => props.theme.typeScale.header3};}
-// h4 {font-size: ${props => props.theme.typeScale.header4};}
-// h5 {font-size: ${props => props.theme.typeScale.header5};}  
+h1 {
+    line-height: 4rem;
+    font-size: ${props => props.theme.typeScale.header1};
+}
+h2 {
+    line-height: 2.8rem;
+    font-size: ${props => props.theme.typeScale.header2};
+}
+h3 {font-size: ${props => props.theme.typeScale.header3};}
+h4 {font-size: ${props => props.theme.typeScale.header4};}
+h5 {font-size: ${props => props.theme.typeScale.header5};}  
 `;
 
 export default Globalstyles;

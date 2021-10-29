@@ -5,6 +5,7 @@ import { HeaderContext } from './styled';
 import Button from 'components/Buttons';
 import { CgMenuRight } from 'react-icons/cg';
 import { colors } from 'theme';
+import Logo from 'assets/png/logo.png';
 
 const buttonStyle = {
   display: 'block',
@@ -23,10 +24,10 @@ const Header = props => {
   return (
     <>
       <HeaderContext>
-        <img src="/logo.png" className="logo" alt="" />
+        <img src={Logo} className="logo" alt="" />
         <Nav style={{ display: window.innerWidth <= 756 ? 'none' : 'inline-block' }} />
         <div className="button-group">
-          <Button type="ghost" color="primary" _backgroundColor="primary">
+          <Button type="ghost" color="primary" backgroundcolor="primary">
             Sign In
           </Button>
           <Button>Get Started</Button>
@@ -41,7 +42,7 @@ const Header = props => {
       </HeaderContext>
       <Drawer placement="right" closable onClose={onClose} visible={visible}>
         <Nav orientation="mobile" />
-        <Button type="ghost" color="primary" _backgroundColor="primary" style={{ ...buttonStyle }}>
+        <Button type="ghost" color="primary" backgroundcolor="primary" style={{ ...buttonStyle }}>
           Sign In
         </Button>
         <Button style={{ ...buttonStyle }}>Get Started</Button>
