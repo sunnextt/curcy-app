@@ -4,6 +4,7 @@ import About from './sectionAbout';
 import Story from './sectionOurStory';
 import WhyCurrenxi from './sectionWhyCurrenxi';
 import GetStarted from './sectionGetStarted';
+import ABetterWay from './sectionABetterWay';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Story />
       <WhyCurrenxi />
       <GetStarted />
+      <ABetterWay />
     </Layout.Content>
   );
 };
