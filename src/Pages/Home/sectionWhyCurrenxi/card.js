@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Card_ from 'components/whyCurrenxiCard';
+import Card_ from 'components/Card';
 
 export const Card = styled(Card_)`
   margin: 2rem 0;

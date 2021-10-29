@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Card as Card_ } from 'antd';
 
-export const Card = styled(Card_)`
+const Card = styled(Card_)`
   width: 90%;
   border-radius: 6px;
   display: flex;
@@ -9,3 +9,5 @@ export const Card = styled(Card_)`
   align-items: center;
   text-align: center;
 `;
+
+export default Card;

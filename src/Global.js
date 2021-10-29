@@ -28,7 +28,7 @@ body {
     width: 100%;
     height: 100vh;
     line-height: 2.1rem;
-    font-size: ${props => props.theme.typeScale.bodyText4};
+    font-size: ${props => props.theme.typeScale.bodyText3};
     font-family: ${props => props.theme.primaryFont};
     color: ${props => props.theme.colors.black[100]};
     font-style: normal;
@@ -56,6 +56,10 @@ h2 {
 h3 {font-size: ${props => props.theme.typeScale.header3};}
 h4 {font-size: ${props => props.theme.typeScale.header4};}
 h5 {font-size: ${props => props.theme.typeScale.header5};}  
+p{
+    font-weight: 100;
+    font-size: ${props => props.theme.typeScale.bodyText3};
+}
 `;
 
 export default Globalstyles;

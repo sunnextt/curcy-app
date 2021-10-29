@@ -3,6 +3,7 @@ import Hero from './sectionHero';
 import About from './sectionAbout';
 import Story from './ourStory';
 import WhyCurrenxi from './sectionWhyCurrenxi';
+import GetStarted from './getStarted';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <About />
       <Story />
       <WhyCurrenxi />
+      <GetStarted />
     </Layout.Content>
   );
 };
