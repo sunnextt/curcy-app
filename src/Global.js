@@ -35,10 +35,13 @@ body {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #F6F9FF;
+    
 }
 
 .ant-layout{    
-    background-color: ${({ theme }) => theme.colors.white[100]};
+    background-color: #F6F9FF;
+    /* background-color: ${({ theme }) => theme.colors.white[100]}; */
 }
 
 .theContent{
@@ -60,6 +63,13 @@ p{
     font-weight: 100;
     font-size: ${props => props.theme.typeScale.bodyText3};
 }
+
+a {
+    font-weight: 400;
+    font-size: ${props => props.theme.typeScale.bodyText3};
+    color: ${({ theme }) => theme.colors.blue[100]};
+}
+
 `;
 
 export default Globalstyles;

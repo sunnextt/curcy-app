@@ -15,4 +15,11 @@ export const Li = styled.li`
   ${({ orientation }) => (orientation === 'mobile' ? 'padding: .5rem 0;' : 'padding: 0 1rem;')}
   color: ${({ theme }) => theme.colors.blue[100]};
   font-weight: 500;
+
+  a {
+    color: ${({ theme }) => theme.colors.blue[100]};
+  }
 `;
+
+
+
