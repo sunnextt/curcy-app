@@ -22,10 +22,10 @@ const NewsLetter = () => {
 
     return (
         <Row>
-            <Col span={9}>
+            <Col span={9} xs={24} sm={24} md={9} lg={9}>
             <img src={EnvelopeImg} alt="envelope" />
             </Col>
-            <Col span={15}>
+            <Col span={15} xs ={24} sm={24} md={15} lg={15}>
             <h5>Stay Up to date</h5>
             <p>Sign up for our newsletters. Then you get regular news, bitcoin exchange rates and avaible gift cards etc.</p>
             <Form

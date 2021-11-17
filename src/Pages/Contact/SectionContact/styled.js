@@ -3,7 +3,21 @@ import styled from 'styled-components';
 
 export const ContactSection = styled.section`
 background: #F6F9FF;
+height: 100vh;
+ margin: 0 auto 3rem;
+
+
+
+    @media (max-width: ${({ theme }) => theme.media.sm}) {
+      height: 90vh;
+      width:90%;
+      position:relative;
+      margin: 0 auto 10rem;
+
+    }
+    
 `
+
 export const ContactDiv = styled.div`
   color: ${({ theme }) => theme.colors.blue[100]};
 h4 {
@@ -14,6 +28,7 @@ p {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
+  text-align: left;
 }
 `
 
@@ -48,12 +63,6 @@ export const Button = styled.button`
     &:hover {
         color: ${({ theme }) => theme.colors.blue[100]};
         background-color: ${({ theme }) => theme.colors.yellow[100]};
-
-    }
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-        padding: 18px 20px;
-        font-size: 15px;
-        width: ${(props) => props.sm || '100%'};
     }
 `
 

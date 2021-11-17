@@ -7,13 +7,13 @@ const ContactUs = () => {
     return (
         <ContactSection>
             <Row>
-                <Col span={15}>
+                <Col span={15} xs ={24} sm={24} md={15}>
                     <ContactDiv>
                         <h4>Contact Us</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                     </ContactDiv>
                 </Col>
-                <Col span={15}>
+                <Col span={15} xs ={24} sm={24} md={15}>
                     <Form>
                         <InputItem>
                             <div style={{flex: "1 1 auto"}}>

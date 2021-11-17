@@ -8,7 +8,6 @@ import { Button as _Button } from 'antd';
 
 export const Row = styled(Row_)`
   background: url(${background}) top center / 100% ${({ theme }) => theme.colors.yellow[100]};
-  /* background: ${({ theme }) => theme.colors.yellow[100]}; */
   border: none;
   border-radius: 6px;
   margin: auto;
@@ -44,6 +43,14 @@ export const Row = styled(Row_)`
   color: ${({ theme }) => theme.colors.blue[100]};
   font-weight: 500;
 }
+    @media (max-width: ${({ theme }) => theme.media.sm}) {
+      width: 100%;
+      position:relative;
+      margin: 3rem auto;
+      display: flex;
+      flex-direction: column;
+    }
+
 `;
 
 

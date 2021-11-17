@@ -8,6 +8,12 @@ export const Row = styled(Row_)`
     width: 100%;
     text-align: center;
   }
+      @media (max-width: ${({ theme }) => theme.media.sm}) {
+      width: 100%;
+      height: 100vh;
+      margin: 3rem auto 20rem;
+
+    }
 `;
 
 export const CardQuestion = styled(Card)`

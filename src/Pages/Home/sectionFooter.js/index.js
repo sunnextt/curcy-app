@@ -36,7 +36,7 @@ const Footer = () => {
             </Nav>
             <FooterBottom>
               <hr/>
-              <div>
+              <div style={{display: 'flex', flexDirection:"row"}}>
                 <p>@ 2021 Currenxi.ng. All rights reserved</p>
               <SocialIcon className="icon">
                 <AiFillInstagram />
