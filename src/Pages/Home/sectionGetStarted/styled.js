@@ -5,6 +5,10 @@ import Row_ from 'components/Row';
 
 export const Row = styled(Row_)`
   padding: 7.5rem 10rem;
+  
+ @media (max-width: ${({ theme }) => theme.media.sm}) {
+  padding: 7.5rem 1rem;
+}
 `;
 
 const genericStyle = `
