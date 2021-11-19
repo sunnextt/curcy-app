@@ -10,8 +10,8 @@ export const Row = styled(Row_)`
   }
       @media (max-width: ${({ theme }) => theme.media.sm}) {
       width: 100%;
-      height: 100vh;
-      margin: 3rem auto 20rem;
+      height: 100%;
+      margin: 3rem auto;
 
     }
 `;

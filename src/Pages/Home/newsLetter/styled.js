@@ -1,23 +1,34 @@
+import { Col as _Col } from 'antd';
 import styled from 'styled-components';
-import Row_ from 'components/Row';
 import background from 'assets/png/bgPattern.png';
-import { Button as _Button } from 'antd';
 
+export const Div = styled.section`
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    background: transparent;
+    z-index: 100;
+    position: absolute;
+    height: 50%;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%,-50%);
 
+       @media (max-width: ${({ theme }) => theme.media.sm}) {
+      position: relative;
+      padding: 0;
+      margin: -28rem auto;
+  }
 
+    @media only screen 
+    and (min-device-width: 320px) 
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      position: relative;
+      padding: 0;
+      margin: -25rem auto;
+  }
 
-export const Row = styled(Row_)`
-  background: url(${background}) top center / 100% ${({ theme }) => theme.colors.yellow[100]};
-  border: none;
-  border-radius: 6px;
-  margin: auto;
-  width: 75%;
-  position:absolute;
-  top: 10%;
-  left: 50%;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  transform: translate(-50%, -50%);
-  z-index:1000;
 
   h5,
   p {
@@ -32,9 +43,6 @@ export const Row = styled(Row_)`
     font-weight: 500;
   }
 
-  img {
-    width: 50%;
-  }
   form {
     width: 100%;
   }
@@ -43,16 +51,25 @@ export const Row = styled(Row_)`
   color: ${({ theme }) => theme.colors.blue[100]};
   font-weight: 500;
 }
-    @media (max-width: ${({ theme }) => theme.media.sm}) {
-      width: 100%;
-      position:relative;
-      margin: 3rem auto;
-      display: flex;
-      flex-direction: column;
-    }
 
 `;
 
+export const Main = styled.main`
+background: url(${background}) top center / 100% ${({ theme }) => theme.colors.yellow[100]};
+box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+display: flex;
+width: 70%;
+margin: 0 auto;
+justify-content: center;
+align-items: center;
+border: none;
+border-radius: 8px;
+
+  @media only screen and (max-width: 756px) {
+   width: 90%;
+  }
+
+`
 
 export const Button = styled.button`
 background-color: ${({ theme }) => theme.colors.blue[100]};
@@ -78,3 +95,19 @@ export const HelpText = styled.p`
 `
 
 
+export const Col = styled(_Col)`
+  background: transparent;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  
+
+  img {
+   @media only screen and (max-width: 756px) {
+   width: 30%;
+  }
+  }
+`;

@@ -3,16 +3,14 @@ import styled from 'styled-components';
 
 export const ContactSection = styled.section`
 background: #F6F9FF;
-height: 100vh;
- margin: 0 auto 3rem;
-
+height: 100%;
 
 
     @media (max-width: ${({ theme }) => theme.media.sm}) {
       height: 90vh;
       width:90%;
       position:relative;
-      margin: 0 auto 10rem;
+      margin: 0 auto;
 
     }
     
