@@ -29,7 +29,7 @@ const ContactUs = () => {
                             <InputLabel>Message</InputLabel>
                             <TextField rows="8" name="email" placeholder="Write here ..."/>
                         </div>
-                        <div>
+                        <div style={{marginTop: '2rem'}}>
                            <Button>Send Message</Button>
                         </div>
                     </Form>

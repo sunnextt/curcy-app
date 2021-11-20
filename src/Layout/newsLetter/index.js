@@ -17,7 +17,6 @@ const NewsLetter = () => {
 
     return (
       < Div>
-        <Main>
           <Row>
             <Col span={6} xs={24} sm={9} md={9} lg={9}>
               <div style={{textAlign: 'center', padding: '1rem'}}>
@@ -46,8 +45,6 @@ const NewsLetter = () => {
               </div>
             </Col>
           </Row>
-
-        </Main>
         </Div>
     )
 }

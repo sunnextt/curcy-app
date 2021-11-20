@@ -4,15 +4,20 @@ import styled from 'styled-components';
 export const ContactSection = styled.section`
 background: #F6F9FF;
 height: 100%;
+text-align-last: start;
 
 
     @media (max-width: ${({ theme }) => theme.media.sm}) {
-      height: 90vh;
+      height: 100%;
       width:90%;
       position:relative;
       margin: 0 auto;
 
     }
+
+    @media only screen and (max-width: 756px){
+    padding: 3.5rem;
+}
     
 `
 
@@ -111,4 +116,9 @@ export const TextField = styled.textarea`
   justify-content: space-between;
   text-align: left;
   gap: 10px;
-  `
+
+  @media only screen and (max-width: 756px) {
+    flex-direction: column;
+  }
+
+`

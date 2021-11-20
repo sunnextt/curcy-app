@@ -70,6 +70,11 @@ a {
     color: ${({ theme }) => theme.colors.blue[100]};
 }
 
+.clear {
+    clear:both;
+    line-height:0;
+}
+
 `;
 
 export default Globalstyles;

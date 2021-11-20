@@ -4,15 +4,11 @@ import { AiFillInstagram } from "react-icons/ai";
 import { AiFillTwitterSquare } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
 import NewsLetter from '../newsLetter';
-import { FooterDiv, Div } from './styled';
-
-
+import { FooterNavDiv} from './styled';
 
 const Footer = () => {
     return (
-      <FooterDiv >
-            <NewsLetter/>
-          <Div>
+      <FooterNavDiv >
               <Nav>
                 <Ul>
                   <Li>
@@ -34,7 +30,11 @@ const Footer = () => {
               </Nav>
               <FooterBottom>
                 <hr/>
-                <div style={{display: 'flex', flexDirection:"row", width: '100%'}}>
+                <div style={{
+                  display: 'flex', 
+                  flexDirection:"row", 
+                  width: '100%'}}
+                  >
                   <p>@ 2021 Currenxi.ng. All rights reserved</p>
                 <SocialIcon className="icon">
                   <AiFillInstagram />
@@ -43,8 +43,7 @@ const Footer = () => {
                 </SocialIcon>
                 </div>
               </FooterBottom>
-          </Div>
-      </FooterDiv>
+          </FooterNavDiv>
     )
 }
 

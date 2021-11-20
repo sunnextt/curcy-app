@@ -1,25 +1,20 @@
 import styled from 'styled-components';
 
-export const FooterDiv = styled.footer`
-position: relative;
-height: 100vh;
-width: 100%;
-   @media (max-width: ${({ theme }) => theme.media.sm}) {
-     margin: 25rem auto 0;
-  }
 
-`
-
-export const Div = styled.div`
+export const FooterNavDiv = styled.div`
   background-color: ${({ theme }) => theme.colors.blue[100]};
+  border: none;
   position: absolute;
-  width: 100%;
   bottom: 0;
-  left: 0;
-  right:0;
-  height: 70%;
-  margin: 0 auto;
+  height: 60%;
+  width: 100%;
+
+    @media only screen and (max-width: 600px) {
+   height: 100%;
+   position: relative;
+   } 
 `
+
 
 
 export const Nav = styled.nav`
@@ -33,21 +28,17 @@ export const Nav = styled.nav`
   transform: translate(-50%, -50%);
 
     @media (max-width: ${({ theme }) => theme.media.sm}) {
-      position:absolute; 
+      position:relative; 
       display: flex;
       flex-direction: column;
       text-align: left;
-      transform: of;
-      margin: 0 auto;
+      padding: 1rem 0;
+      left: auto;
+      bottom: auto;
+      margin: 3rem auto;
       width: 90%;
-      bottom: 15rem;
-
+      transform: none;
     }
-    
-  @media only screen and (max-width: 756px) {
-     bottom: 15rem;
-    
-  }
 `;
 
 export const Ul = styled.ul`
@@ -79,6 +70,23 @@ flex-direction: column;
 align-items: center;
 bottom: 2rem;
 
+
+ @media (max-width: ${({ theme }) => theme.media.sm}) {
+   position: relative;
+   margin: 5% auto;
+   bottom: auto;
+   height: 100%;
+  }
+
+  > div {
+
+   @media (max-width: ${({ theme }) => theme.media.sm}) {
+     flex-direction: column;
+     height: 120px;
+  }
+
+  }
+
 hr {
   width: 100%;
   color: #fff;
@@ -87,9 +95,9 @@ hr {
   border-top: 1px solid #ccc;
   margin-bottom: 2rem;
   top: 0;
-      @media (max-width: ${({ theme }) => theme.media.sm}) {
-   position: absolute;
-   bottom: 24rem;
+   @media (max-width: ${({ theme }) => theme.media.sm}) {
+   position: relative;
+   top: auto;
   }
 }
 
@@ -99,34 +107,18 @@ p {
   font-weight: 400;
   width: 100%;
   text-align: left;
-     @media (max-width: ${({ theme }) => theme.media.sm}) {
-   position: absolute;
-   bottom: 30px;
-  }
-     @media (max-width: ${({ theme }) => theme.media.sm}) {
+
+
+   @media (max-width: ${({ theme }) => theme.media.sm}) {
    position: absolute;
    bottom: 0px;
   }
 }
 
-> div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  color: white;
-
-  }
-
-   @media (max-width: ${({ theme }) => theme.media.sm}) {
-   position: absolute;
-   bottom: 10%;
-   height:30%;
-  }
-
 `
 
 export const SocialIcon = styled.nav`
+color: white;
   display: flex;
   flex-direction: row;
   font-size: 30px;
@@ -134,7 +126,7 @@ export const SocialIcon = styled.nav`
 
    @media (max-width: ${({ theme }) => theme.media.sm}) {
    position: absolute;
-   top: 30px;
+   top: 3rem;
   }
 
 `

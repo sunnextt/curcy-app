@@ -2,33 +2,26 @@ import { Col as _Col } from 'antd';
 import styled from 'styled-components';
 import background from 'assets/png/bgPattern.png';
 
-export const Div = styled.section`
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    background: transparent;
-    z-index: 100;
+export const Div = styled.div`
+    background: url(${background}) top center / 100% ${({ theme }) => theme.colors.yellow[100]};
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border: none;
+    border-radius: 8px;
     position: absolute;
     height: 50%;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%,-50%);
+    width: 70%;
+    top:15%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-       @media (max-width: ${({ theme }) => theme.media.sm}) {
-      position: relative;
-      padding: 0;
-      margin: -28rem auto;
+  @media (max-width: ${({ theme }) => theme.media.sm}) {
+   width: 90%;
+   position: relative;
+   margin: 3rem auto 5rem;
+   top: auto;
   }
-
-    @media only screen 
-    and (min-device-width: 320px) 
-    and (max-device-width: 480px)
-    and (-webkit-min-device-pixel-ratio: 2) {
-      position: relative;
-      padding: 0;
-      margin: -25rem auto;
-  }
-
 
   h5,
   p {
@@ -45,6 +38,7 @@ export const Div = styled.section`
 
   form {
     width: 100%;
+
   }
 
   span {
@@ -54,23 +48,21 @@ export const Div = styled.section`
 
 `;
 
-export const Main = styled.main`
-background: url(${background}) top center / 100% ${({ theme }) => theme.colors.yellow[100]};
-box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-display: flex;
-width: 70%;
-margin: 0 auto;
-justify-content: center;
-align-items: center;
-border: none;
-border-radius: 8px;
 
-  @media only screen and (max-width: 756px) {
-   width: 90%;
-  }
+  //      @media (max-width: ${({ theme }) => theme.media.sm}) {
+  //     position: relative;
+  //     padding: 0;
+  //     margin: -28rem auto;
+  // }
 
-`
-
+  //   @media only screen 
+  //   and (min-device-width: 320px) 
+  //   and (max-device-width: 480px)
+  //   and (-webkit-min-device-pixel-ratio: 2) {
+  //     position: relative;
+  //     padding: 0;
+  //     margin: -25rem auto;
+  // }
 export const Button = styled.button`
 background-color: ${({ theme }) => theme.colors.blue[100]};
 color: ${({ theme }) => theme.colors.yellow[100]};

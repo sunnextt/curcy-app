@@ -1,13 +1,13 @@
 import { Layout } from 'antd';
 import Header from './Header';
-import Footer from 'Pages/Home/sectionFooter.js';
+import FooterWrapper from 'Layout/sectionFooter.js/index.js';
 
 const LayoutContext = (props) => {
   return (
     <Layout>
       <Header {...props} />
       {props.children}
-      <Footer />
+      <FooterWrapper />
     </Layout>
   );
 };
