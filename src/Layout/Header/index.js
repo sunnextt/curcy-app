@@ -6,6 +6,7 @@ import Button from 'components/Buttons';
 import { CgMenuRight } from 'react-icons/cg';
 import { colors } from 'theme';
 import Logo from 'assets/png/logo.png';
+import { Link } from 'react-router-dom';
 
 const buttonStyle = {
   display: 'block',
@@ -28,9 +29,11 @@ const Header = props => {
         <Nav style={{ display: window.innerWidth <= 756 ? 'none' : 'inline-block' }} />
         <div className="button-group">
           <Button type="ghost" color="primary" backgroundcolor="primary">
-            Sign In
+            <Link to="/signin">Sign In</Link>
           </Button>
-          <Button>Get Started</Button>
+          <Button>
+            <Link to="##">Get Started</Link>
+          </Button>
         </div>
         <CgMenuRight
           size={20}
@@ -43,7 +46,7 @@ const Header = props => {
       <Drawer placement="right" closable onClose={onClose} visible={visible}>
         <Nav orientation="mobile" />
         <Button type="ghost" color="primary" backgroundcolor="primary" style={{ ...buttonStyle }}>
-          Sign In
+          <Link to="/login">Sign In</Link>
         </Button>
         <Button style={{ ...buttonStyle }}>Get Started</Button>
       </Drawer>

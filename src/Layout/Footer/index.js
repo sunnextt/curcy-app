@@ -3,7 +3,6 @@ import { Nav, Ul, Li, FooterBottom , SocialIcon} from './styled';
 import { AiFillInstagram } from "react-icons/ai";
 import { AiFillTwitterSquare } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
-import NewsLetter from '../newsLetter';
 import { FooterNavDiv} from './styled';
 
 const Footer = () => {

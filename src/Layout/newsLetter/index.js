@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, HelpText, Div, Main, Col } from './styled'
+import { Button, HelpText, Div, Col } from './styled'
 import EnvelopeImg from 'assets/png/envelope.png';
 import { InputWrapper } from 'components/Input/styled';
 import { Form, Row } from 'antd';
