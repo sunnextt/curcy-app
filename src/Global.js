@@ -40,8 +40,7 @@ body {
 }
 
 .ant-layout{    
-    background-color: #F6F9FF;
-    /* background-color: ${({ theme }) => theme.colors.white[100]}; */
+    background-color: ${({ theme }) => theme.colors.white[100]};
 }
 
 .theContent{
