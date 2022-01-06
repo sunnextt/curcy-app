@@ -9,7 +9,7 @@ export const Card = styled(_Card)`
            display: flex;
            align-items: center;
            justify-content: space-between;
-           padding: 2rem 1rem;
+           padding: 1.7rem 1rem;
 
            h6 {
              font-style: normal;
