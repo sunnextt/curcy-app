@@ -8,15 +8,15 @@ const Layout = styled(_Layout)`
 `;
 
 export const ContentContent = styled.main`
-  margin: 9rem 3.5rem 10rem;
+  margin: 9rem 7rem 10rem;
   height: auto;
 
   @media screen and (max-width: 320px) {
-    margin: 12rem 3.5rem 10rem;
+    margin: 12rem 1rem 10rem;
   }
   
   @media screen and (max-width: 600px) {
-    margin: 15rem 3.5rem 10rem;
+    margin: 15rem 1rem 10rem;
   }
 `;
 export default Layout;

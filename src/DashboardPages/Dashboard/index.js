@@ -1,16 +1,28 @@
 import { Col, Row } from 'antd';
 import React from 'react';
+import TradeHistory from './Overviews/TradeHistory';
+import TransactionGraph from './Overviews/TransactionGraph';
+import WalletBalance from './Overviews/WalletBalance';
 
 const DashboardPage = () => {
   return (
-    <Row>
-      <Col xs={24} sm={24} md={16} lg={16}>
-        Hello
-      </Col>
-      <Col xs={24} sm={24} md={8} lg={8}>
-        Hello
-      </Col>
-    </Row>
+    <>
+      <Row>
+        <Col span={24}>
+          <WalletBalance />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <TradeHistory />
+        </Col>
+      </Row>
+      <Row>
+        <Col span={24}>
+          <TransactionGraph />
+        </Col>
+      </Row>
+    </>
   );
 };
 
