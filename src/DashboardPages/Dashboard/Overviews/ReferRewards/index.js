@@ -1,11 +1,13 @@
 import React from 'react';
 import ReferRewardWrapper, { Button, Card } from './styled';
 import handok from '../../../../assets/dashboard/handok.png';
+import { BsArrowRight } from 'react-icons/bs';
+
 
 const ReferReward = () => {
   return (
     <ReferRewardWrapper>
-      <Card style={{ width: '100%', background: '#001950', borderRadius: '16px'}}>
+      <Card style={{ width: '100%', background: '#001950', borderRadius: '16px' }}>
         <div className="card_contents">
           <div className="btn_div">
             <div>
@@ -14,7 +16,7 @@ const ReferReward = () => {
             </div>
             <div>
               <Button href="" type="primary" shape="round" size="large">
-                Learn More
+                Learn More &nbsp;&nbsp; <BsArrowRight size="29" style={{paddingTop: "10px"}} />
               </Button>
             </div>
           </div>

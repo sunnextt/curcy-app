@@ -35,18 +35,19 @@ export const Card = styled(_Card)`
   }
 `;
 export const Button = styled(_Button)`
-         font-family: Museo Sans Rounded;
-         width: 161px;
-         height: 40px;
-         font-style: normal;
-         font-weight: normal;
-         font-size: 14px;
-         line-height: 17px;
-         letter-spacing: 0.4px;
-         color: #001950;
-         background: #fcc700;
-         border-radius: 18px;
-         border: none;
-       `;
+  display: flex;
+  font-family: Museo Sans Rounded;
+  width: 161px;
+  height: 40px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.4px;
+  color: #001950;
+  background: #fcc700;
+  border-radius: 18px;
+  border: none;
+`;
 
 export default ReferRewardWrapper;

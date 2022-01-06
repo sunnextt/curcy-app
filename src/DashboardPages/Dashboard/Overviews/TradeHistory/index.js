@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import TradeHistoryWrapper, { Card, Button } from './styled';
+import HistoryTable from './HistoryTable';
 
 const TradeHistory = () => {
   return (
@@ -12,7 +13,9 @@ const TradeHistory = () => {
               <h5>Trade History</h5>
               <Button type="link">view more </Button>
             </div>
-            <div className="table_contents">HID</div>
+            <div className="table_contents">
+              <HistoryTable/>
+            </div>
           </Card>
         </Col>
         <Col xs={24} sm={24} md={8} lg={9}>
