@@ -32,7 +32,7 @@ const Header = props => {
             <Link to="/signin">Sign In</Link>
           </Button>
           <Button>
-            <Link to="##">Get Started</Link>
+            <Link to="/signup">Get Started</Link>
           </Button>
         </div>
         <CgMenuRight

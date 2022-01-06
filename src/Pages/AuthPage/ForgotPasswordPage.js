@@ -16,7 +16,7 @@ const ForgotPasswordPage = () => {
       <FormSignUpDiv>
         <Form>
           <Row align="middle" justify="center">
-            <Col xs={23} sm={16} md={16} lg={12}>
+            <Col xs={23} sm={16} md={16} lg={20}>
               <InputLabel>Email</InputLabel>
               <Input name="fullName" placeholder="Enter Email" />
             </Col>

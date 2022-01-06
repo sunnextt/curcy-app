@@ -15,6 +15,7 @@ import LoginPage from 'Pages/AuthPage/LoginPage';
 import SignUpPage from 'Pages/AuthPage/SignUpPage';
 import ForgotPasswordPage from 'Pages/AuthPage/ForgotPasswordPage';
 import DashboardLayout from 'LayoutDashboard';
+import Admin from 'routes/admin';
 
 function App() {
   return (
@@ -72,7 +73,7 @@ function App() {
             path="/dashboard"
             render={() => (
               <DashboardLayout>
-                <ForgotPasswordPage />
+                <Admin/>
               </DashboardLayout>
             )}
           />
