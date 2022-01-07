@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row } from 'antd';
 import TradeHistoryWrapper, { Card, Button } from './styled';
 import HistoryTable from './HistoryTable';
+import CoinConverter from '../CoinConverter';
 
 const TradeHistory = () => {
   return (
@@ -19,7 +20,7 @@ const TradeHistory = () => {
           </Card>
         </Col>
         <Col xs={24} sm={24} md={8} lg={9}>
-          <h1>coin converter</h1>
+          <CoinConverter/>
         </Col>
       </Row>
     </TradeHistoryWrapper>
