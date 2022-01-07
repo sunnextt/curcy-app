@@ -1,8 +1,17 @@
 import React from 'react';
-import { Col, Row } from 'antd';
+import { Col, Popover, Row } from 'antd';
 import TransactionGraphWrapper, { Button, Card } from './styled';
 import Graph from './TransactionGraph';
 import AllCryptoNews from '../AllcryptoNews';
+import { BsFillCaretDownFill } from 'react-icons/bs';
+
+const content = (
+  <div>
+    <Button type="link" style={{fontSize: "16px", fontWeight: "bold", textAlign: "center"}}>7 Days</Button>
+    <Button type="link" style={{fontSize: "16px", fontWeight: "bold", textAlign: "center"}}>14 Days</Button>
+    <Button type="link" style={{fontSize: "16px", fontWeight: "bold", textAlign: "center"}}>1 Month</Button>
+  </div>
+);
 
 const TransactionGraph = () => {
   return (
@@ -12,7 +21,14 @@ const TransactionGraph = () => {
           <Card size="small" style={{ width: '100%', background: '#EAEFFA', borderRadius: '16px' }}>
             <div className="card_title">
               <h5>Transaction Graph</h5>
-              <Button type="link">7 days </Button>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Button type="link">7 days </Button>
+                <Popover placement="bottom" title="Filter By No Days" content={content} trigger="hover">
+                  <a className="pop_over" href="##" type="link">
+                    <BsFillCaretDownFill size="30" className="downfilled" />
+                  </a>
+                </Popover>
+              </div>
             </div>
             <div className="table_contents">
               <Graph />

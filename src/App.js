@@ -1,6 +1,8 @@
+import React, { Suspense } from 'react';
+import { Spin } from 'antd';
 import { ThemeProvider } from 'styled-components';
 import Globalstyles from 'Global';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 // layouts
 
@@ -22,62 +24,62 @@ function App() {
     <ThemeProvider theme={theme}>
       <Globalstyles />
       <div className="theContent">
-        <Switch>
+        <Routes>
           <Route
-            exact
             path="/"
-            render={() => (
+            element={
               <LayoutContext>
                 <Home />
               </LayoutContext>
-            )}
+            }
           />
           <Route
             exact
             path="/contact"
-            render={() => (
+            element={
               <LayoutContext>
-                <Contact />
+                <Contact />{' '}
               </LayoutContext>
-            )}
+            }
           />
           <Route
             exact
             path="/signin"
-            render={() => (
+            element={
               <LayoutContext>
                 <LoginPage />
               </LayoutContext>
-            )}
+            }
           />
           <Route
             exact
             path="/signup"
-            render={() => (
+            element={
               <LayoutContext>
                 <SignUpPage />
               </LayoutContext>
-            )}
+            }
           />
           <Route
             exact
             path="/forgotpassword"
-            render={() => (
+            element={
               <LayoutContext>
                 <ForgotPasswordPage />
               </LayoutContext>
-            )}
+            }
           />
           <Route
-            exact
-            path="/dashboard"
-            render={() => (
+            path="/admin/*"
+            element={
               <DashboardLayout>
-                <Admin/>
+                <Suspense fallback={<Spin />}>
+                  <Admin />
+                </Suspense>
               </DashboardLayout>
-            )}
+            }
           />
-        </Switch>
+        </Routes>
       </div>
     </ThemeProvider>
   );

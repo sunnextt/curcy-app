@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
+import Ttable from './styled';
 
 const columns = [
   {
@@ -69,9 +70,9 @@ function onChange(filters, sorter, extra) {
 
 const HistoryTable = () => {
   return (
-    <div>
+    <Ttable>
       <Table columns={columns} dataSource={data} onChange={onChange} pagination={false} />
-    </div>
+    </Ttable>
   );
 };
 

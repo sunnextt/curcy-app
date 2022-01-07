@@ -10,6 +10,10 @@ export const Card = styled(_Card)`
            flex-direction: column;
            justify-content: space-around;
 
+           a {
+             line-height: 57px;
+           }
+
            h6 {
              font-style: normal;
              font-weight: normal;
@@ -43,7 +47,6 @@ export const Card = styled(_Card)`
        `;
 export const Button = styled(_Button)`
   font-family: Museo Sans Rounded;
-  line-height: 32px;
   font-weight: 600;
   font-size: 16px;
   font-style: normal;
@@ -52,6 +55,7 @@ export const Button = styled(_Button)`
   background: #001950;
   border-radius: 6px;
   border: none;
+  height:  4rem;
 `;
 
 export default CoinConverterWrapper;

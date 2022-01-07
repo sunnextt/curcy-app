@@ -1,9 +1,9 @@
+// import { useDispatch } from 'react-redux';
+// import { dispatchLogin } from '../../../redux/actions/authAction';
 import { Col, Row } from 'antd';
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import Container, { Button, Form, Input, InputLabel, FormSignUpDiv } from './styled';
-// import { dispatchLogin } from '../../../redux/actions/authAction';
 import axios from 'axios';
 import { showErrMsg, showSuccessMsg } from '../../utilities/notfication/nofication';
 import { isEmpty, isEmail, isLength } from '../../utilities/validation';
@@ -17,8 +17,7 @@ const initialState = {
 
 const LoginPage = () => {
   const [user, setUser] = useState(initialState);
-  const history = useHistory();
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { email, password, err, success } = user;
 
@@ -44,16 +43,14 @@ const LoginPage = () => {
         localStorage.setItem('firstLogin', true);
 
         // dispatch(dispatchLogin());
-        history.push('/dashboard');
+        navigate('/admin');
       } catch (err) {
         console.log('error');
         err && setUser({ ...user, err: 'username or password is incorrect', success: '' });
-        history.push('/dashboard');
+        navigate('/admin');
       }
     }
   };
-
-  console.log(user);
 
   return (
     <Container>

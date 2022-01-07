@@ -1,14 +1,13 @@
 import React, { lazy } from 'react';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
-const Dashboard = lazy(() => import('../../DashboardPages/Dashboard'));
+const DashboardPage = lazy(() => import('../../DashboardPages/Dashboard'));
 
 const DashboardRoutes = () => {
-  const { path } = useRouteMatch();
   return (
-    <Switch>
-      <Route exact path={path} component={Dashboard} />
-    </Switch>
+    <Routes>
+      <Route exact path="" element={<DashboardPage />} />
+    </Routes>
   );
 };
 

@@ -1,23 +1,18 @@
-import React, { Suspense } from 'react';
-import { Spin } from 'antd';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import Dashboard from './dashboard';
+import React from 'react';
+import { Routes, Route, useResolvedPath } from 'react-router-dom';
+import SellcoinsPageRoutes from './SellcoinsRoute';
+import DashboardRoutes from './dashboard';
 
 const Admin = () => {
-  const { path } = useRouteMatch();
+  let path = useResolvedPath('').pathname;
+  console.log('x:', path);
+  console.log(`${path}/sellcoins`);
 
   return (
-    <Switch>
-      <Suspense
-        fallback={
-          <div className="spin">
-            <Spin />
-          </div>
-        }
-      >
-        <Route path={path} component={Dashboard} />
-      </Suspense>
-    </Switch>
+    <Routes>
+      <Route path="/" element={<DashboardRoutes />} />
+      <Route path="sellcoins" element={<SellcoinsPageRoutes />} />
+    </Routes>
   );
 };
 

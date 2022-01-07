@@ -4,7 +4,7 @@ const ConverterWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 3rem 0;
+  margin: 2.3rem 0;
 
   .converter_input {
     select {

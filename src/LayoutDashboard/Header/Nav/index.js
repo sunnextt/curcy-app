@@ -1,30 +1,33 @@
 import { Col } from 'antd';
 import React from 'react';
+import { generatePath } from 'react-router-dom';
 import { Li, Link, NavWrap, Row, Ul } from './styled';
 
 const Nav = () => {
+  let path = generatePath('/admin');
+
   return (
     <Row justify="center" align="middle">
       <Col xs={24} sm={22} md={2} lg={16}>
         <NavWrap>
           <Ul>
             <Li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to={`${path}`}>Dashboard</Link>
             </Li>
             <Li>
-              <Link to="/sellcoinds">Sell Coins</Link>
+              <Link to={`${path}/sellcoins`}>Sell Coins</Link>
             </Li>
             <Li>
-              <Link to="/trades">Trades</Link>
+              <Link to={`${path}/trades`}>Trades</Link>
             </Li>
             <Li>
-              <Link to="/transactions">Transactions</Link>
+              <Link to={`${path}/transactions`}>Transactions</Link>
             </Li>
             <Li>
-              <Link to="/withdraw">Withdraw</Link>
+              <Link to={`${path}/withdraws`}>withdraws</Link>
             </Li>
             <Li>
-              <Link to="/Ppofile">Profile</Link>
+              <Link to={`${path}/profile`}>Profile</Link>
             </Li>
           </Ul>
         </NavWrap>
