@@ -31,8 +31,9 @@ const ProfilePage = () => {
             NOTIFICATION
           </CustomTab>
         </TabList>
-        <TabPanel className="tab_panel">Panel 1</TabPanel>
-        <TabPanel>Panel 2</TabPanel>
+        <TabPanel className="tab_panel">PERSONAL DATA</TabPanel>
+        <TabPanel> BANK ACCOUNT</TabPanel>
+        <TabPanel> NOTIFICATION</TabPanel>
       </Tabs>
     </ProfilePageWrap>
   );

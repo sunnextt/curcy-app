@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
 const ProfilePageWrap = styled.main`
+  background: #f6f9ff;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  border-radius: 16px;
+  padding: 2rem 3rem;
+
   .tab_list {
     border-bottom: 3px solid #e0dfdf;
   }
