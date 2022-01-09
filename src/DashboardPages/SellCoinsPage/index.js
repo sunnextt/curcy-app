@@ -21,7 +21,7 @@ const SellcoinsPage = () => {
         </div>
       </div>
       <div>
-        <Divider className="divider" />
+        <hr className="divider" />
       </div>
       <div className="step_two">
         <div>

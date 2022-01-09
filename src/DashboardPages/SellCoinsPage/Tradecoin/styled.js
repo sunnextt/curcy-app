@@ -63,7 +63,7 @@ export const Input = styled.input`
   font-family: Museo Sans Rounded;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 17px;
   text-align: left;
   color: #050505;
@@ -76,7 +76,7 @@ export const Select = styled.select`
   font-family: Museo Sans Rounded;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 28px;
   text-align: left;
   color: #001950;

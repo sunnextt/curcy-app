@@ -39,7 +39,8 @@ const SellcoinsContainer = styled.div`
   .step_one {
   }
   .divider {
-    margin: 3rem;
+    border-top: 3px solid #cccccc;
+    margin: 4rem 0;
   }
   .step_two {
   }
