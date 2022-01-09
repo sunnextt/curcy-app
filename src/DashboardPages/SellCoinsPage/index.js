@@ -1,4 +1,3 @@
-import { Divider } from 'antd';
 import React from 'react';
 import CardContext from './Card';
 import SellcoinsContainer from './styled';
