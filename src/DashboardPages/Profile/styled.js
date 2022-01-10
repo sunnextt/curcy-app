@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ProfilePageWrap = styled.main`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #f6f9ff;
   border: 1px solid #979797;
   box-sizing: border-box;
