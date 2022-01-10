@@ -73,7 +73,13 @@ function App() {
             path="/admin/*"
             element={
               <DashboardLayout>
-                <Suspense fallback={<Spin />}>
+                <Suspense
+                  fallback={
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Spin />
+                    </div>
+                  }
+                >
                   <Admin />
                 </Suspense>
               </DashboardLayout>

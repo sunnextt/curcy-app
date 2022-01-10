@@ -50,14 +50,29 @@ body {
 h1 {
     line-height: 4rem;
     font-size: ${props => props.theme.typeScale.header1};
+    font-family: Museo Sans Rounded;
 }
 h2 {
     line-height: 2.8rem;
     font-size: ${props => props.theme.typeScale.header2};
+    font-family: Museo Sans Rounded;
 }
-h3 {font-size: ${props => props.theme.typeScale.header3};}
-h4 {font-size: ${props => props.theme.typeScale.header4};}
-h5 {font-size: ${props => props.theme.typeScale.header5};}  
+h3 {font-size: ${props => props.theme.typeScale.header3};
+font-family: Museo Sans Rounded;
+   font-style: normal;
+}
+h4 {font-size: ${props => props.theme.typeScale.header4};
+font-family: Museo Sans Rounded;
+    font-style: normal;
+}
+h5 {font-size: ${props => props.theme.typeScale.header5};
+font-family: Museo Sans Rounded;
+    font-style: normal;
+}  
+h6 {font-size: ${props => props.theme.typeScale.header6};
+  font-family: Museo Sans Rounded;
+    font-style: normal;
+}  
 p{
     font-weight: 100;
     font-size: ${props => props.theme.typeScale.bodyText3};

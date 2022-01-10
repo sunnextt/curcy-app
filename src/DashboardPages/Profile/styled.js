@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const ProfilePageWrap = styled.main`
+  width: 100%;
+  height: 100vh;
   background: #f6f9ff;
   border: 1px solid #979797;
   box-sizing: border-box;
@@ -39,5 +41,10 @@ const ProfilePageWrap = styled.main`
     border-bottom: 3px solid #001950;
   }
 `;
-
+export const Title = styled.h4`
+  font-weight: bold;
+  font-size: 30px;
+  font-feature-settings: 'salt' on, 'liga' off;
+  color: #001950;
+`;
 export default ProfilePageWrap;

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import ProfilePageWrap from './styled';
+import BankAccount from './BankAccount';
+import Notification from './Notification';
+import ParsonalData from './PersonalData';
+import ProfilePageWrap, { Title } from './styled';
 
 // Tabs === <div>
 // Tablist === ul
@@ -19,6 +22,9 @@ CustomTab.tabsRole = 'Tab'; // Required field to use your custom Tab
 const ProfilePage = () => {
   return (
     <ProfilePageWrap>
+      <div>
+        <Title>Profile</Title>
+      </div>
       <Tabs className="tabs">
         <TabList className="tab_list">
           <CustomTab className="custom_typo" selected="selected">
@@ -31,9 +37,15 @@ const ProfilePage = () => {
             NOTIFICATION
           </CustomTab>
         </TabList>
-        <TabPanel className="tab_panel">PERSONAL DATA</TabPanel>
-        <TabPanel> BANK ACCOUNT</TabPanel>
-        <TabPanel> NOTIFICATION</TabPanel>
+        <TabPanel className="tab_panel">
+          <ParsonalData />
+        </TabPanel>
+        <TabPanel>
+          <BankAccount />
+        </TabPanel>
+        <TabPanel>
+          <Notification />
+        </TabPanel>
       </Tabs>
     </ProfilePageWrap>
   );

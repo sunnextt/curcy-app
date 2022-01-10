@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import Ttable from './styled';
+import Ttable, { StatusDiv } from './styled';
 
 const columns = [
   {
@@ -39,28 +39,44 @@ const data = [
     naira: '₦ 3,000.00',
     usd: '$ 8.00',
     date: '23 Dec. 2021',
-    status: 'Rejected',
+    status: (
+      <StatusDiv BGcolor="rejected">
+        <h6>Rejected</h6>
+      </StatusDiv>
+    ),
   },
   {
     key: '2',
     naira: '₦ 3,000.00',
     usd: '$ 8.00',
     date: '23 Dec. 2021',
-    status: 'Rejected',
+    status: (
+      <StatusDiv BGcolor="rejected">
+        <h6>Rejected</h6>
+      </StatusDiv>
+    ),
   },
   {
     key: '3',
     naira: '₦ 3,000.00',
     usd: '$ 8.00',
     date: '23 Dec. 2021',
-    status: 'Rejected',
+    status: (
+      <StatusDiv BGcolor="pending">
+        <h6>Rejected</h6>
+      </StatusDiv>
+    ),
   },
   {
     key: '4',
     naira: '₦ 3,000.00',
     usd: '$ 8.00',
     date: '23 Dec. 2021',
-    status: 'Rejected',
+    status: (
+      <StatusDiv BGcolor="completed">
+        <h6>Rejected</h6>
+      </StatusDiv>
+    ),
   },
 ];
 
@@ -68,9 +84,9 @@ function onChange(filters, sorter, extra) {
   console.log('params', filters, sorter, extra);
 }
 
-const HistoryTable = () => {
+const HistoryTable = ({ BGcolor }) => {
   return (
-    <Ttable>
+    <Ttable BGcolor={BGcolor}>
       <Table columns={columns} dataSource={data} onChange={onChange} pagination={false} />
     </Ttable>
   );
