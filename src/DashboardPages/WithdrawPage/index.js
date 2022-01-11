@@ -1,5 +1,5 @@
 import React from 'react';
-import WithdrawPageWrapper, { Button, FlexRow, Form, Input, Label, CNInput, VerticalBox } from './styled';
+import WithdrawPageWrapper, { Button, FlexRow, Form, Input, Label, CNInput, VerticalBox, FlexRowC } from './styled';
 import infologo from '../../assets/dashboard/infologo.png';
 
 const WithdrawPage = () => {
@@ -22,12 +22,12 @@ const WithdrawPage = () => {
         </VerticalBox>
         <VerticalBox>
           <Label>Account Balance</Label>
-          <FlexRow>
+          <FlexRowC>
             <div className="currency_name">
               <h6>NGN</h6>
             </div>
             <CNInput type="text" name="bankName" placeholder="203,000" />
-          </FlexRow>
+          </FlexRowC>
         </VerticalBox>
         <Button>Withdraw</Button>
         <div className="info_msg">

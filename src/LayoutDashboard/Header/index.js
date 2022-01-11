@@ -1,20 +1,36 @@
-import { Col, Row } from 'antd';
-import React from 'react';
+import { Col, Drawer, Row } from 'antd';
+import React, { useState } from 'react';
 import AppLogoAndUserAvatar from './AppLogoAndUserAvatar';
 import Nav from './Nav';
 import HeaderContainer from './styled';
+import { useMediaQuery } from 'usehooks-ts';
 
 const Header = () => {
+  const matches = useMediaQuery('(min-width: 768px)');
+
+  const [visible, setVisible] = useState(false);
+  const onOpen = () => {
+    setVisible(true);
+  };
+  const onClose = () => {
+    setVisible(false);
+  };
+
   return (
     <HeaderContainer>
       <Row>
         <Col span={24} style={{ background: '#ffffff' }}>
-          <AppLogoAndUserAvatar />
+          <AppLogoAndUserAvatar matches={matches} onOpen={onOpen} />
         </Col>
-        <Col span={24} style={{ background: '#001950' }}>
-          <Nav />
-        </Col>
+        {matches ? (
+          <Col span={24} style={{ background: '#001950' }}>
+            <Nav />
+          </Col>
+        ) : null}
       </Row>
+      <Drawer placement="right" closable onClose={onClose} visible={visible}>
+        <Nav orientation="mobile" />
+      </Drawer>
     </HeaderContainer>
   );
 };

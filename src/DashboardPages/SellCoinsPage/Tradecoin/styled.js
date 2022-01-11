@@ -5,6 +5,10 @@ const TradeInputWrap = styled.div`
   width: 60%;
   margin: 2rem 0;
 
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+
   .btn_div {
     display: flex;
     gap: 1.5rem;
@@ -56,6 +60,10 @@ export const RateXchangeDiv = styled.div`
     color: #001950;
     margin-left: -5px;
     margin-top: 2.5rem;
+
+    @media screen and (max-width: 768px) {
+      margin-left: -31px;
+    }
   }
 `;
 export const Input = styled.input`
@@ -71,6 +79,10 @@ export const Input = styled.input`
   border: 1px solid #cccccc;
   box-sizing: border-box;
   border-radius: 0 8px 8px 0;
+
+  @media screen and (max-width: 700px) {
+    width: 50%;
+  }
 `;
 export const Select = styled.select`
   font-family: Museo Sans Rounded;

@@ -13,11 +13,11 @@ const content = (
   </div>
 );
 
-const TransactionGraph = () => {
+const TransactionGraph = ({ matches }) => {
   return (
     <TransactionGraphWrapper>
-      <Row>
-        <Col xs={24} sm={24} md={16} lg={15} style={{ paddingRight: '30px' }}>
+      <Row gutter={[0, 24]}>
+        <Col xs={24} sm={24} md={16} lg={15} style={{ paddingRight: matches && '30px' }}>
           <Card size="small" style={{ width: '100%', background: '#EAEFFA', borderRadius: '16px' }}>
             <div className="card_title">
               <h5>Transaction Graph</h5>

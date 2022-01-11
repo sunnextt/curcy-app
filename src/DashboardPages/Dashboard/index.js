@@ -3,8 +3,11 @@ import React from 'react';
 import TradeHistory from './Overviews/TradeHistory';
 import TransactionGraph from './Overviews/TransactionGraph';
 import WalletBalance from './Overviews/WalletBalance';
+import { useMediaQuery } from 'usehooks-ts';
 
 const DashboardPage = () => {
+  const matches = useMediaQuery('(min-width: 768px)');
+
   return (
     <>
       <Row>
@@ -14,12 +17,12 @@ const DashboardPage = () => {
       </Row>
       <Row>
         <Col span={24}>
-          <TradeHistory />
+          <TradeHistory matches={matches} />
         </Col>
       </Row>
       <Row>
         <Col span={24}>
-          <TransactionGraph />
+          <TransactionGraph matches={matches} />
         </Col>
       </Row>
     </>

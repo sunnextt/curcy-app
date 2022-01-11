@@ -8,7 +8,7 @@ const Nav = () => {
 
   return (
     <Row justify="center" align="middle">
-      <Col xs={24} sm={22} md={2} lg={18}>
+      <Col xs={24} sm={22} md={22} lg={18}>
         <NavWrap>
           <Ul>
             <Li>

@@ -44,6 +44,10 @@ export const Input = styled.input`
   display: flex;
   align-items: center;
   color: #050505;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Label = styled.label`
@@ -86,6 +90,10 @@ export const Select = styled.select`
   border-radius: 8px;
   padding: 10px 16px;
   width: 45%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  } 
 `;
 export const Option = styled.option``;
 

@@ -14,6 +14,10 @@ const NotificationWrapper = styled.div`
     padding: 1rem 2rem;
     margin: 1rem 0;
 
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
     span {
       position: absolute;
       right: 1rem;

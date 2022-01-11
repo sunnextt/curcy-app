@@ -13,10 +13,21 @@ const WithdrawPageWrapper = styled.section`
     border-right: none;
     border-radius: 8px 0 0 8px;
     padding: 6px;
+
+    @media screen and (max-width: 768px) {
+      width: 24%;
+      padding: 0.95rem 1rem 0.95rem 1.5rem;
+    }
+    @media screen and (max-width: 900px) and (min-width: 768px) {
+      padding: 10px;
+    }
+    @media screen and (max-width: 1200px) and (min-width: 900px) {
+      padding: 7.8px;
+    }
     h6 {
       font-family: Museo Sans Rounded;
       font-size: 17px;
-      font-style: normal;
+      768font-style: normal;
       font-weight: 400;
       letter-spacing: 0em;
       text-align: left;
@@ -29,6 +40,10 @@ const WithdrawPageWrapper = styled.section`
     gap: 10px;
     width: 60%;
     margin: 3rem 0 2rem;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
 
     h6 {
       margin: 0;
@@ -56,6 +71,16 @@ export const FlexRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+  }
+`;
+export const FlexRowC = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const Form = styled.form``;
@@ -77,6 +102,10 @@ export const Input = styled.input`
   display: flex;
   align-items: center;
   color: #050505;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 export const CNInput = styled.input`
   background: #ffffff;
@@ -95,6 +124,9 @@ export const CNInput = styled.input`
   display: flex;
   align-items: center;
   color: #050505;
+  @media screen and (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export const Label = styled.label`
@@ -127,6 +159,10 @@ export const Button = styled.button`
     background: #001940;
     color: #ffffff;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
   }
 `;
 export const Select = styled.select``;
