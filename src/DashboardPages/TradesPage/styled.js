@@ -13,6 +13,11 @@ export const HeaderContent = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 768px) {
+    row-gap: 2rem;
+  }
 
   .search_refresh_div {
     display: flex;

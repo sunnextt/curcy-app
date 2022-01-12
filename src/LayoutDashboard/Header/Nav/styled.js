@@ -20,6 +20,7 @@ export const NavWrap = styled.nav`
 `;
 export const Ul = styled.ul`
   display: flex;
+  flex-direction: ${({ orientation }) => (orientation === 'mobile' ? 'column' : 'row')};
   justify-content: space-between;
   align-items: center;
   margin: 0;
@@ -27,14 +28,21 @@ export const Ul = styled.ul`
   list-style-type: none;
 `;
 
-export const Li = styled.li``;
+export const Li = styled.li`
+  display: ${({ orientation }) => (orientation === 'mobile' ? 'block' : 'inline-block')};
+  ;
+  ${({ orientation }) => (orientation === 'mobile' ? 'padding: .5rem 0;' : 'padding: 0 1rem;')}
+  color: ${({ theme }) => theme.colors.blue[100]};
+  font-weight: 500;
+  margin: ${({ orientation }) => orientation === 'mobile' && '1rem 0'};
+`;
 
 export const Link = styled(_Link)`
-  color: #fff;
+  color: ${({ orientation }) => (orientation === 'mobile' ? '#001950' : '#ffffff')};
   padding: 1rem 16px;
-
+  font-size: ${({ orientation }) => orientation === 'mobile' && '2rem'};
   &:hover {
-    border-bottom: 5px solid #fcc700;
+    border-bottom: ${({ orientation }) => orientation !== 'mobile' && '5px solid #fcc700'};
     transition: 0.3s;
   }
 `;

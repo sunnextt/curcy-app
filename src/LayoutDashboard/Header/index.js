@@ -24,12 +24,12 @@ const Header = () => {
         </Col>
         {matches ? (
           <Col span={24} style={{ background: '#001950' }}>
-            <Nav />
+            <Nav color="#ffffff" />
           </Col>
         ) : null}
       </Row>
       <Drawer placement="right" closable onClose={onClose} visible={visible}>
-        <Nav orientation="mobile" />
+        <Nav orientation="mobile" color="#001950" matches={matches} />
       </Drawer>
     </HeaderContainer>
   );

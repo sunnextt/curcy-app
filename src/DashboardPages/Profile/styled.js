@@ -34,6 +34,10 @@ const ProfilePageWrap = styled.main`
     padding: 6px 0;
     margin: 0 5rem 0 0;
     cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+      margin: 0 1rem;
+    }
   }
 
   .react-tabs__tab--selected {

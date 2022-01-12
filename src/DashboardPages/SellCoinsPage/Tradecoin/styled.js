@@ -64,6 +64,10 @@ export const RateXchangeDiv = styled.div`
     @media screen and (max-width: 768px) {
       margin-left: -31px;
     }
+
+    @media screen and (max-width: 520px) {
+      display: none;
+    }
   }
 `;
 export const Input = styled.input`
@@ -92,9 +96,10 @@ export const Select = styled.select`
   line-height: 28px;
   text-align: left;
   color: #001950;
-  padding: 1rem 10px;
+  padding: 0.95rem 10px;
   background: #ffffff;
   border: 1px solid #cccccc;
+  border-right: none;
   box-sizing: border-box;
   border-radius: 8px 0 0 8px;
 `;
