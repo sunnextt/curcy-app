@@ -81,6 +81,10 @@ export const Button = styled.button`
     color: #ffffff;
     cursor: pointer;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export default ParsonalDataWrapper;

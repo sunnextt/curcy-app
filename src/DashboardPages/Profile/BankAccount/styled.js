@@ -81,6 +81,9 @@ export const Button = styled.button`
     color: #ffffff;
     cursor: pointer;
   }
+  @media screen and (max-width: 768px) {
+    width: 50%;
+  }
 `;
 
 export const Select = styled.select`
@@ -93,7 +96,7 @@ export const Select = styled.select`
 
   @media screen and (max-width: 768px) {
     width: 100%;
-  } 
+  }
 `;
 export const Option = styled.option``;
 
