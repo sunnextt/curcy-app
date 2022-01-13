@@ -33,7 +33,7 @@ const Nav = props => {
             </Li>
             <Li {...props}>
               <Link {...props} to={`${path}/withdraws`}>
-                withdrawals
+                Withdrawals
               </Link>
             </Li>
             <Li {...props}>

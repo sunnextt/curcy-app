@@ -48,4 +48,5 @@ export const Link = styled(_Link)`
     border-bottom: ${({ orientation }) => orientation !== 'mobile' && '5px solid #fcc700'};
     transition: 0.3s;
   }
+  text-transform: capitalize;
 `;
