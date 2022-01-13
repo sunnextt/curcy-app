@@ -9,6 +9,9 @@ export const Row = styled(_Row)`
   @media screen and (max-width: 760px) {
     padding: 0 1rem;
   }
+  @media screen and (max-width: 796px) {
+    padding: 0 6rem;
+  }
 
   h1 {
     margin: 0;

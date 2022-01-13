@@ -8,7 +8,7 @@ const Nav = props => {
 
   return (
     <Row justify="center" align="middle">
-      <Col xs={24} sm={22} md={22} lg={18}>
+      <Col xs={24} sm={24} md={24} lg={20}>
         <NavWrap>
           <Ul {...props}>
             <Li {...props}>
@@ -33,7 +33,7 @@ const Nav = props => {
             </Li>
             <Li {...props}>
               <Link {...props} to={`${path}/withdraws`}>
-                withdraws
+                withdrawals
               </Link>
             </Li>
             <Li {...props}>
