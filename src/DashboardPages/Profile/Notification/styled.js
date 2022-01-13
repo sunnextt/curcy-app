@@ -24,6 +24,12 @@ const NotificationWrapper = styled.div`
     }
   }
 
+  .notification_contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .notification_text_content {
     h5 {
       font-weight: 600;
@@ -43,6 +49,12 @@ const NotificationWrapper = styled.div`
       mix-blend-mode: normal;
       opacity: 0.8;
     }
+  }
+
+  .flex_row {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 10px;
   }
 `;
 
