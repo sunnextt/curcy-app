@@ -18,6 +18,7 @@ import SignUpPage from 'Pages/AuthPage/SignUpPage';
 import ForgotPasswordPage from 'Pages/AuthPage/ForgotPasswordPage';
 import DashboardLayout from 'LayoutDashboard';
 import Admin from 'routes/admin';
+import Page404 from 'Pages/Page404';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
               </LayoutContext>
             }
           />
+          <Route path="*" element={<Page404 />} />
           <Route
             path="/admin/*"
             element={
