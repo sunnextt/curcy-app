@@ -1,20 +1,10 @@
 import { combineReducers } from 'redux';
-import test from './testReducer';
-// import persistState from 'redux-localstorage';
+import authReducer from '../slice/AuthSlice';
+import messageReducer from '../slice/MessageSlice';
 
-const appReducer = combineReducers({
-    test
-})
-
-const rootReducer = ( state, action ) => {
-    if( action.type === "USER_LOGOUT" ) {
-        // Object.keys(state).forEach(key => {
-        //     persistState.removeItem(`persist:${key}`);
-        // });
-        state = undefined;
-    }
-        
-    return appReducer(state, action)
-}
+const rootReducer = combineReducers({
+  auth: authReducer,
+  message: messageReducer,
+});
 
 export default rootReducer;

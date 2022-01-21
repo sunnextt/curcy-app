@@ -19,15 +19,20 @@ import ForgotPasswordPage from 'Pages/AuthPage/ForgotPasswordPage';
 import DashboardLayout from 'LayoutDashboard';
 import Admin from 'routes/admin';
 import Page404 from 'Pages/Page404';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const { user: currentUser } = useSelector(state => state.auth);
+
+  console.log(currentUser);
+
   return (
     <ThemeProvider theme={theme}>
       <Globalstyles />
       <div className="theContent">
         <Routes>
           <Route
-            path="/"
+            path=""
             element={
               <LayoutContext>
                 <Home />
@@ -40,15 +45,6 @@ function App() {
             element={
               <LayoutContext>
                 <Contact />{' '}
-              </LayoutContext>
-            }
-          />
-          <Route
-            exact
-            path="/signin"
-            element={
-              <LayoutContext>
-                <LoginPage />
               </LayoutContext>
             }
           />
@@ -71,22 +67,34 @@ function App() {
             }
           />
           <Route path="*" element={<Page404 />} />
-          <Route
-            path="/admin/*"
-            element={
-              <DashboardLayout>
-                <Suspense
-                  fallback={
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <Spin />
-                    </div>
-                  }
-                >
-                  <Admin />
-                </Suspense>
-              </DashboardLayout>
-            }
-          />
+          {currentUser ? (
+            <Route
+              path="/admin/*"
+              element={
+                <DashboardLayout>
+                  <Suspense
+                    fallback={
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Spin />
+                      </div>
+                    }
+                  >
+                    <Admin />
+                  </Suspense>
+                </DashboardLayout>
+              }
+            />
+          ) : (
+            <Route
+              exact
+              path="/signin"
+              element={
+                <LayoutContext>
+                  <LoginPage />
+                </LayoutContext>
+              }
+            />
+          )}
         </Routes>
       </div>
     </ThemeProvider>

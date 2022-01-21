@@ -1,12 +1,13 @@
-// import { useDispatch } from 'react-redux';
-// import { dispatchLogin } from '../../../redux/actions/authAction';
-import { Col, Row } from 'antd';
-import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Col, Row, Spin } from 'antd';
+import React, { useState, useEffect } from 'react';
 import Container, { Button, Form, Input, InputLabel, FormSignUpDiv } from './styled';
-import axios from 'axios';
 import { showErrMsg, showSuccessMsg } from '../../utilities/notfication/nofication';
 import { isEmpty, isEmail, isLength } from '../../utilities/validation';
+
+import { login } from '../../redux/slice/AuthSlice';
+import { clearMessage } from '../../redux/slice/MessageSlice';
 
 const initialState = {
   email: '',
@@ -16,10 +17,19 @@ const initialState = {
 };
 
 const LoginPage = () => {
+  const [loading, setLoading] = useState(false);
+  const { isLoggedIn } = useSelector(state => state.auth);
+  // const { message } = useSelector(state => state.message);
+
   const [user, setUser] = useState(initialState);
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const { email, password, err, success } = user;
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(clearMessage());
+  }, [dispatch]);
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
@@ -36,21 +46,31 @@ const LoginPage = () => {
     } else if (isLength(password)) {
       setUser({ ...user, err: 'Password must be at least 6 characters.', success: '' });
     } else {
-      try {
-        const res = await axios.post('/user/login', { email, password });
-        setUser({ ...user, err: '', success: res.data.msg });
+      // console.log(loading);
+      // console.log(isLoggedIn);
+      // console.log(message);
+      setLoading(true);
 
-        localStorage.setItem('firstLogin', true);
-
-        // dispatch(dispatchLogin());
-        navigate('/admin');
-      } catch (err) {
-        console.log('error');
-        err && setUser({ ...user, err: 'username or password is incorrect', success: '' });
-        navigate('/admin');
-      }
+      dispatch(login({ email, password }))
+        .unwrap()
+        .then(() => {
+          Navigate('/admin');
+          window.location.reload();
+        })
+        .catch(() => {
+          setLoading(false);
+          // console.log(loading);
+          // console.log(isLoggedIn);
+          // console.log(message);
+        });
     }
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      return <Navigate to="/admin" />;
+    }
+  }, [isLoggedIn]);
 
   return (
     <Container>
@@ -87,6 +107,9 @@ const LoginPage = () => {
                 <Row align="middle" justify="center">
                   <Col>
                     <Button type="submit">Sign In</Button>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '1rem' }}>
+                      {loading && <Spin />}
+                    </div>
                   </Col>
                 </Row>
               </div>
