@@ -1,6 +1,5 @@
 import ExpirySession from 'expirysession';
 import CurrenxiAuthApi from './AuthApi.instance';
-import CurrenxiApi from './Api.instance';
 
 const register = async (first_name, last_name, email, password, password_confirmation, phone_number) => {
   const response = await CurrenxiAuthApi.post('/register', {
@@ -28,12 +27,12 @@ const login = async (email, password) => {
 };
 
 const forgotpassword = async email => {
-  const response = await CurrenxiApi.post('password/forget', { email });
+  const response = await CurrenxiAuthApi.post('password/forget', { email });
   return response.data;
 };
 
-const resetpassword = async (password, password_confirmation) => {
-  const response = await CurrenxiApi.post('password/reset', { password, password_confirmation });
+const resetpassword = async (token, password_confirmation, password) => {
+  const response = await CurrenxiAuthApi.post('password/reset', { token, password_confirmation, password });
   return response.data;
 };
 

@@ -40,10 +40,14 @@ const ForgotPasswordPage = () => {
 
   if (success) {
     return (
-      <div className="signup_header">
-        <h2>Password Reset</h2>
-        <h6>Password Reset A message has been sent to you by email with instructions on how to reset your password.</h6>
-      </div>
+      <Container>
+        <div className="signup_header">
+          <h2>Password Reset</h2>
+          <h6>
+            A message has been sent to you by email with instructions on how to reset your password.
+          </h6>
+        </div>
+      </Container>
     );
   }
 

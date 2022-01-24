@@ -23,6 +23,7 @@ import RequireAuth from 'utilities/requireAuth';
 import ResetPasswordPage from 'Pages/AuthPage/ResetPassword';
 import { useDispatch } from 'react-redux';
 import { getTrade, getTransaction } from 'redux/slice/tradeDataSlice';
+import RequireToken from 'utilities/requireToken';
 
 function App() {
   const dispatch = useDispatch();
@@ -75,10 +76,12 @@ function App() {
           />
           <Route
             exact
-            path="/passwordreset"
+            path="passwordreset"
             element={
               <LayoutContext>
-                <ResetPasswordPage />
+                <RequireToken>
+                  <ResetPasswordPage />
+                </RequireToken>
               </LayoutContext>
             }
           />
@@ -93,7 +96,7 @@ function App() {
           />
           <Route path="*" element={<Page404 />} />
           <Route
-            path="/admin"
+            path="/admin/*"
             element={
               <DashboardLayout>
                 <Suspense

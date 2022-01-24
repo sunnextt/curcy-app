@@ -6,17 +6,25 @@ import WalletBalance from './Overviews/WalletBalance';
 import { useMediaQuery } from 'usehooks-ts';
 import { useSelector } from 'react-redux';
 
+const initialState = {};
 const DashboardPage = () => {
   const matches = useMediaQuery('(min-width: 768px)');
   const { user: currentUser } = useSelector(state => state.auth);
+  const { trade: UsertradeData } = useSelector(state => state.trade);
 
+  const [tradeData, setTradeData] = useState(initialState);
   const [data, setData] = useState('');
 
   useEffect(() => {
     if (currentUser) {
       setData(currentUser.data);
     }
-  }, [currentUser]);
+
+    if (UsertradeData) {
+      setTradeData(UsertradeData);
+    }
+  }, [UsertradeData, currentUser, tradeData]);
+
 
   return (
     <>
@@ -27,12 +35,12 @@ const DashboardPage = () => {
       </Row>
       <Row>
         <Col span={24}>
-          <TradeHistory data={data} matches={matches} />
+          <TradeHistory data={data} matches={matches} tradeData={tradeData} />
         </Col>
       </Row>
       <Row>
         <Col span={24}>
-          <TransactionGraph data={data} matches={matches} />
+          <TransactionGraph data={data} matches={matches} tradeData={tradeData} />
         </Col>
       </Row>
     </>

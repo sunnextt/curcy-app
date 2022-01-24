@@ -25,7 +25,6 @@ CustomTab.tabsRole = 'Tab'; // Required field to use your custom Tab
 
 const ProfilePage = () => {
   const { user: currentUser } = useSelector(state => state.auth);
-  const { profile: UpdateProfile } = useSelector(state => state.update);
   const { message: UpdateMessage } = useSelector(state => state.update);
 
   const notify = () =>
@@ -41,6 +40,7 @@ const ProfilePage = () => {
     });
 
   const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
   const [successUpdate, setSuccessUpdate] = useState(false);
   const { data } = currentUser;
 

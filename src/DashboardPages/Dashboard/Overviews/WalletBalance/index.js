@@ -12,7 +12,6 @@ const WalletBalance = ({ data }) => {
 
   const { wallet } = data;
 
-  console.log(wallet);
   return (
     <WalletWrapper>
       <Row gutter={[0, 24]}>

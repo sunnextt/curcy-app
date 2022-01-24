@@ -2,11 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Col, Row, Spin } from 'antd';
 import React, { useState, useEffect } from 'react';
 import Container, { Button, Form, Input, InputLabel, FormSignUpDiv } from './styled';
-import { showErrMsg, showSuccessMsg } from '../../utilities/notfication/nofication';
+import { showErrMsg } from '../../utilities/notfication/nofication';
 import { isEmpty, isLength, isMatch } from '../../utilities/validation';
 
 import { clearMessage } from '../../redux/slice/MessageSlice';
 import { resetpassword } from '../../redux/slice/AuthSlice';
+import useQuery from 'utilities/useQuery';
 
 const initialState = {
   password: '',
@@ -15,7 +16,13 @@ const initialState = {
   success: '',
 };
 
+const styles = {
+  color: '#f1c40f',
+};
+
 const ResetPasswordPage = () => {
+  let query = useQuery();
+
   const [loading, setLoading] = useState(false);
   const [successReset, setSuccessReset] = useState(false);
 
@@ -23,7 +30,9 @@ const ResetPasswordPage = () => {
 
   const [user, setUser] = useState(initialState);
 
-  const { password, password_confirmation, err,  } = user;
+  const { password, password_confirmation, err } = user;
+
+  const token = query.get('token');
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,7 +46,6 @@ const ResetPasswordPage = () => {
 
   const handleReset = async e => {
     e.preventDefault();
-
     if (isEmpty(password)) {
       setUser({ ...user, err: 'Please fill in all fields.', success: '' });
     } else if (isLength(password)) {
@@ -46,8 +54,8 @@ const ResetPasswordPage = () => {
       setUser({ ...user, err: 'Password did not match.', success: '' });
     } else {
       setLoading(true);
-
-      dispatch(resetpassword({ password, password_confirmation }))
+      console.log({ token, password_confirmation, password });
+      dispatch(resetpassword({ token, password_confirmation, password }))
         .unwrap()
         .then(() => {
           setSuccessReset(true);
@@ -62,12 +70,17 @@ const ResetPasswordPage = () => {
 
   if (successReset) {
     return (
-      <div className="signup_header">
-        <h2>Password Reset</h2>
-        <h6>
-          Sweet! Your new password has now been set. <a href="/login">Go to account</a>
-        </h6>
-      </div>
+      <Container>
+        <div className="signup_header">
+          <h2>Password Reset</h2>
+          <h6>
+            Congratulations! Your new password has now been set.{' '}
+            <a style={styles} href="/login">
+              Go to account
+            </a>
+          </h6>
+        </div>
+      </Container>
     );
   }
 
@@ -83,8 +96,7 @@ const ResetPasswordPage = () => {
       <FormSignUpDiv>
         <Row align="middle" justify="center">
           <Col span={12} xs={22} sm={22} md={22} lg={24}>
-            {err && showErrMsg(err)}
-            {message && showSuccessMsg(message)}
+            {err && showErrMsg(err ? err : message)}
             <Form onSubmit={handleReset}>
               <Row gutter={24}>
                 <Col xs={24} sm={24} md={24}>

@@ -4,7 +4,7 @@ import TradeHistoryWrapper, { Card, Button } from './styled';
 import HistoryTable from './HistoryTable';
 import CoinConverter from '../CoinConverter';
 
-const TradeHistory = ({ matches }) => {
+const TradeHistory = ({ matches, tradeData }) => {
   return (
     <TradeHistoryWrapper>
       <Row gutter={[0, 24]}>
@@ -15,7 +15,7 @@ const TradeHistory = ({ matches }) => {
               <Button type="link">view more </Button>
             </div>
             <div className="table_contents">
-              <HistoryTable />
+              <HistoryTable tradeData={tradeData} />
             </div>
           </Card>
         </Col>

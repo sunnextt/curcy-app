@@ -144,9 +144,10 @@ export const FormSignUpDiv = styled.div`
   margin-top: 3rem;
 
   .forgotpassword_link {
-      display: flex;
-      justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
+
 
 export default Container;
