@@ -1,93 +1,61 @@
-import React from 'react';
-import { Table } from 'antd';
+import React, { useRef } from 'react';
 import Ttable, { StatusDiv } from './styled';
+import CustomTable from 'components/Table/constumTable';
+import { TradeData } from 'utilities/mochData';
 
 const columns = [
   {
+    key: 'id',
     title: 'NAIRA',
     dataIndex: 'naira',
-    sorter: {
-      compare: (a, b) => a.naira - b.naira,
-    },
+
+    sorter: (a, b) => a.naira.localeCompare(b.naira),
   },
   {
+    key: 'id',
     title: 'USD',
     dataIndex: 'usd',
-    sorter: {
-      compare: (a, b) => a.usd - b.usd,
-    },
+    sorter: (a, b) => a.usd.localeCompare(b.usd),
   },
   {
+    key: 'id',
     title: 'DATE',
     dataIndex: 'date',
-    sorter: {
-      compare: (a, b) => a.date - b.date,
-    },
+    sorter: (a, b) => a.date.localeCompare(b.date),
   },
   {
+    key: 'id',
     title: 'STATUS',
     dataIndex: 'status',
-    sorter: {
-      compare: (a, b) => a.status - b.status,
-    },
-  },
-];
-
-const data = [
-  {
-    key: '1',
-    naira: '₦ 3,000.00',
-    usd: '$ 8.00',
-    date: '23 Dec. 2021',
-    status: (
-      <StatusDiv BGcolor="rejected">
-        <h6>Rejected</h6>
-      </StatusDiv>
-    ),
-  },
-  {
-    key: '2',
-    naira: '₦ 3,000.00',
-    usd: '$ 8.00',
-    date: '23 Dec. 2021',
-    status: (
-      <StatusDiv BGcolor="rejected">
-        <h6>Rejected</h6>
-      </StatusDiv>
-    ),
-  },
-  {
-    key: '3',
-    naira: '₦ 3,000.00',
-    usd: '$ 8.00',
-    date: '23 Dec. 2021',
-    status: (
-      <StatusDiv BGcolor="pending">
-        <h6>Rejected</h6>
-      </StatusDiv>
-    ),
-  },
-  {
-    key: '4',
-    naira: '₦ 3,000.00',
-    usd: '$ 8.00',
-    date: '23 Dec. 2021',
-    status: (
-      <StatusDiv BGcolor="completed">
-        <h6>Rejected</h6>
-      </StatusDiv>
+    sorter: (a, b) => a.status.localeCompare(b.status),
+    render: (_value, { status }) => (
+      <div>
+        {status === 'pending' && (
+          <StatusDiv BGcolor="pending">
+            <h6>Pending</h6>
+          </StatusDiv>
+        )}
+        {status === 'success' && (
+          <StatusDiv BGcolor="completed">
+            <h6>Success</h6>
+          </StatusDiv>
+        )}
+        {status === 'rejected' && (
+          <StatusDiv BGcolor="rejected">
+            <h6>Rejected</h6>
+          </StatusDiv>
+        )}
+      </div>
     ),
   },
 ];
-
-function onChange(filters, sorter, extra) {
-  console.log('params', filters, sorter, extra);
-}
 
 const HistoryTable = ({ BGcolor }) => {
+  const changeStatus = useRef(null);
+
   return (
     <Ttable BGcolor={BGcolor}>
-      <Table columns={columns} dataSource={data} onChange={onChange} pagination={false} />
+      <CustomTable changeStatus={changeStatus} columns={columns} data={TradeData} pagination={false} />
     </Ttable>
   );
 };

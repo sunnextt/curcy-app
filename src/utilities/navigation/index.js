@@ -1,9 +1,9 @@
 const { useNavigate } = require('react-router-dom');
 
-const Navigate = () => {
+const Navigate = (key) => {
   const navigate = useNavigate();
 
-  navigate('/signin');
+  navigate(key);
 };
 
 export default Navigate;

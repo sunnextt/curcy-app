@@ -21,20 +21,9 @@ const AppLogoAndUserAvatar = ({ matches, onOpen }) => {
 
   const logOut = useCallback(() => {
     dispatch(logout());
-    Navigate('/signin');
+    Navigate('/login');
     window.location.reload();
   }, [Navigate, dispatch]);
-
-  const username = 'Josh Osazuwa';
-
-  const content = (
-    <ContentDiv style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-      <div className="content_username">
-        <h6>{username}</h6>
-      </div>
-      <Button onClick={logOut}>Log out</Button>
-    </ContentDiv>
-  );
 
   useEffect(() => {
     EventBus.on('logout', () => {
@@ -46,14 +35,27 @@ const AppLogoAndUserAvatar = ({ matches, onOpen }) => {
     };
   }, [currentUser, logOut]);
 
+  const { data } = currentUser || {};
+
+  const username = `${data && data.first_name} ${data && data.last_name}`;
+
+  const content = (
+    <ContentDiv style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="content_username">
+        <h6>{username}</h6>
+      </div>
+      <Button onClick={logOut}>Log out</Button>
+    </ContentDiv>
+  );
+
   return (
     <Row>
       <img src={DashboardLogo} alt="Dashboard Logo" />
       <div className="avatar_div">
         <h6>
-          {matches && username}
+          {username}
           &nbsp; &nbsp;
-          <Popover content={content} trigger="click">
+          <Popover content={content} placement="bottom" trigger="click">
             <span>
               <Avatar
                 round

@@ -1,6 +1,6 @@
 import { Col, Row, Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Container, { Button, Form, Input, InputLabel, FormSignUpDiv } from './styled';
 import { showErrMsg, showSuccessMsg } from '../../utilities/notfication/nofication';
@@ -24,7 +24,7 @@ const SignUpPage = () => {
   const [user, setUser] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [successful, setSuccessful] = useState(false);
-  // const { message } = useSelector(state => state.message);
+  const { isLoggedIn } = useSelector(state => state.auth);
 
   const { first_name, last_name, phone_number, password, email, password_confirmation, err, success } = user;
   const Navigate = useNavigate();
@@ -38,8 +38,6 @@ const SignUpPage = () => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value, err: '', success: '' });
   };
-
-  console.log(user);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -63,20 +61,22 @@ const SignUpPage = () => {
       .unwrap()
       .then(res => {
         setSuccessful(true);
+        setUser({ ...user, err: '', success: 'Sign up successfully' });
         Navigate('/admin');
         window.location.reload();
-        setUser({ ...user, err: '', success: res.data.msg });
       })
-      .catch(err => {
+      .catch(error => {
         setSuccessful(false);
         setLoading(false);
-        err.response && setUser({ ...user, err: err.response, success: '' });
+        error.message && setUser({ ...user, err: 'The email invalid or already used', success: '' });
       });
   };
 
-  if (successful) {
-    return <navigate to="/admin" />;
-  }
+  useEffect(() => {
+    if (successful || isLoggedIn) {
+      return Navigate('/admin');
+    }
+  }, [Navigate, isLoggedIn, successful]);
 
   return (
     <Container>
@@ -92,7 +92,7 @@ const SignUpPage = () => {
         <Row align="middle" justify="center">
           <Col span={12} xs={22} sm={22} md={22} lg={12}>
             {err && showErrMsg(err)}
-            {success && showSuccessMsg(success)}
+            {success && showSuccessMsg('Sign up successfully')}
             <Form onSubmit={handleSubmit}>
               <Row gutter={24}>
                 <Col xs={12} sm={12} md={12}>
@@ -139,7 +139,7 @@ const SignUpPage = () => {
                 <Row align="middle" justify="center">
                   <Col>
                     <p>
-                      Already have an account?<Link to="/signin"> Sign In</Link>
+                      Already have an account?<Link to="/login"> Sign In</Link>
                     </p>
                   </Col>
                 </Row>

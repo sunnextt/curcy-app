@@ -17,7 +17,7 @@ const Admin = () => {
       <Route path="/*" element={<DashboardRoutes />} />
       <Route path="sellcoins" element={<SellcoinsPageRoutes />} />
       <Route path="withdraws" element={<WithdrawPageRoutes />} />
-      <Route path="profile" element={<ProfilePageRoutes />} />
+      <Route path="profile/*" element={<ProfilePageRoutes />} />
       <Route path="trades" element={<TradeHistoryRoutes />} />
       <Route path="transactions" element={<TransactionsPageRoutes />} />
     </Routes>

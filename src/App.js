@@ -19,12 +19,19 @@ import ForgotPasswordPage from 'Pages/AuthPage/ForgotPasswordPage';
 import DashboardLayout from 'LayoutDashboard';
 import Admin from 'routes/admin';
 import Page404 from 'Pages/Page404';
-import { useSelector } from 'react-redux';
+import RequireAuth from 'utilities/requireAuth';
+import ResetPasswordPage from 'Pages/AuthPage/ResetPassword';
+import { useDispatch } from 'react-redux';
+import { getTrade, getTransaction } from 'redux/slice/tradeDataSlice';
 
 function App() {
-  const { user: currentUser } = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const yes = true;
 
-  console.log(currentUser);
+  React.useEffect(() => {
+    dispatch(getTransaction({ yes }));
+    dispatch(getTrade({ yes }));
+  }, [dispatch, yes]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -50,10 +57,28 @@ function App() {
           />
           <Route
             exact
+            path="/login"
+            element={
+              <LayoutContext>
+                <LoginPage />
+              </LayoutContext>
+            }
+          />
+          <Route
+            exact
             path="/signup"
             element={
               <LayoutContext>
                 <SignUpPage />
+              </LayoutContext>
+            }
+          />
+          <Route
+            exact
+            path="/passwordreset"
+            element={
+              <LayoutContext>
+                <ResetPasswordPage />
               </LayoutContext>
             }
           />
@@ -67,34 +92,24 @@ function App() {
             }
           />
           <Route path="*" element={<Page404 />} />
-          {currentUser ? (
-            <Route
-              path="/admin/*"
-              element={
-                <DashboardLayout>
-                  <Suspense
-                    fallback={
-                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Spin />
-                      </div>
-                    }
-                  >
+          <Route
+            path="/admin"
+            element={
+              <DashboardLayout>
+                <Suspense
+                  fallback={
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Spin />
+                    </div>
+                  }
+                >
+                  <RequireAuth>
                     <Admin />
-                  </Suspense>
-                </DashboardLayout>
-              }
-            />
-          ) : (
-            <Route
-              exact
-              path="/signin"
-              element={
-                <LayoutContext>
-                  <LoginPage />
-                </LayoutContext>
-              }
-            />
-          )}
+                  </RequireAuth>
+                </Suspense>
+              </DashboardLayout>
+            }
+          />
         </Routes>
       </div>
     </ThemeProvider>

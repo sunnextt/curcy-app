@@ -7,31 +7,29 @@ import { setMessage } from './MessageSlice';
 const user = ExpirySession.get('user');
 
 export const register = createAsyncThunk(
-         'auth/register',
-         async ({ first_name, last_name, email, password, password_confirmation, phone_number }, thunkAPI) => {
-           try {
-             const response = await AuthService.register(
-               first_name,
-               last_name,
-               email,
-               password,
-               password_confirmation,
-               phone_number,
-             );
+  'auth/register',
+  async ({ first_name, last_name, email, password, password_confirmation, phone_number }, thunkAPI) => {
+    try {
+      const response = await AuthService.register(
+        first_name,
+        last_name,
+        email,
+        password,
+        password_confirmation,
+        phone_number,
+      );
 
-             thunkAPI.dispatch(setMessage(response.data.message));
-             return response.data;
-           } catch (error) {
-             console.log(error);
-             const message =
-               (error.response && error.response.data && error.response.data.message) ||
-               error.message ||
-               error.toString();
-             thunkAPI.dispatch(setMessage(message));
-             return thunkAPI.rejectWithValue();
-           }
-         },
-       );
+      thunkAPI.dispatch(setMessage(response.data.message));
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      const message =
+        (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+      thunkAPI.dispatch(setMessage(message));
+      return thunkAPI.rejectWithValue();
+    }
+  },
+);
 
 export const login = createAsyncThunk('auth/login', async ({ email, password }, thunkAPI) => {
   try {
@@ -45,11 +43,39 @@ export const login = createAsyncThunk('auth/login', async ({ email, password }, 
   }
 });
 
+export const forgotpassword = createAsyncThunk('auth/forgotpassword', async ({ email }, thunkAPI) => {
+  try {
+    const data = await AuthService.forgotpassword(email);
+    return { user: data };
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+    thunkAPI.dispatch(setMessage(message));
+    return thunkAPI.rejectWithValue();
+  }
+});
+export const resetpassword = createAsyncThunk(
+  'auth/resetpassword',
+  async ({ password, password_confirmation }, thunkAPI) => {
+    try {
+      const data = await AuthService.forgotpassword(password, password_confirmation);
+      return { user: data };
+    } catch (error) {
+      const message =
+        (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+      thunkAPI.dispatch(setMessage(message));
+      console.log(error);
+      console.log(message);
+      return thunkAPI.rejectWithValue();
+    }
+  },
+);
+
 export const logout = createAsyncThunk('auth/logout', async () => {
   AuthService.logout();
 });
 
-const initialState = user ? { isLoggedIn: true, user } : { isLoggedIn: false, token: null };
+const initialState = user ? { isLoggedIn: true, user } : { isLoggedIn: false, user: null };
 
 const authSlice = createSlice({
   name: 'auth',
@@ -66,6 +92,22 @@ const authSlice = createSlice({
       state.user = action.payload.user;
     },
     [login.rejected]: (state, action) => {
+      state.isLoggedIn = false;
+      state.user = null;
+    },
+    [forgotpassword.fulfilled]: (state, action) => {
+      state.isLoggedIn = false;
+      state.user = action.payload.user;
+    },
+    [forgotpassword.rejected]: (state, action) => {
+      state.isLoggedIn = false;
+      state.user = null;
+    },
+    [resetpassword.fulfilled]: (state, action) => {
+      state.isLoggedIn = false;
+      state.user = action.payload.user;
+    },
+    [resetpassword.rejected]: (state, action) => {
       state.isLoggedIn = false;
       state.user = null;
     },

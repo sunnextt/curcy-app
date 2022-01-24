@@ -35,6 +35,7 @@ export const Row = styled(_Row)`
     text-align: right;
     color: #001950;
     margin: 0px;
+    text-transform: capitalize;
   }
 
   .bell_notification {
@@ -46,6 +47,7 @@ export const Row = styled(_Row)`
   .user_avatar {
     border: 3px solid #f0bd22;
     cursor: pointer;
+    position: relative;
   }
   .avatar_div {
     display: flex;
@@ -70,10 +72,15 @@ export const ContentDiv = styled.div`
     text-align: right;
     color: #001950;
     margin: 0px;
+    text-transform: capitalize;
   }
 
   button {
     color: #001950;
     margin-bottom: 10px;
+  }
+
+  .ant-popover {
+    position: fixed;
   }
 `;

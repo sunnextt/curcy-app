@@ -1,24 +1,42 @@
 import React from 'react';
-import BankAccountWrapper, { Button, Input, Label, Option, Select, VerticalBox } from './styled';
+import BankAccountWrapper, { Button, Form, Input, Label, VerticalBox } from './styled';
 
-const BankAccount = () => {
+const BankAccount = ({ profileData, handleSubmit, handleChangeInput }) => {
   return (
     <BankAccountWrapper>
-      <VerticalBox>
-        <Label>Bank Name</Label>
-        <Select>
-            <Option value="gtb">GT Bank</Option> 
-        </Select>
-      </VerticalBox>
-      <VerticalBox>
-        <Label>Account Number</Label>
-        <Input name="accountNo" type="text"  width="45%"/>
-      </VerticalBox>
-      <VerticalBox>
-        <Label>Account Name</Label>
-        <Input name="accountName" type="text"  width="45%"/>
-      </VerticalBox>
-      <Button>Save</Button>
+      <Form onSubmit={handleSubmit}>
+        <VerticalBox>
+          <Label>Bank Name</Label>
+          <Input
+            name="bank_name"
+            defaultValue={profileData ? profileData.bank_name : ''}
+            type="text"
+            width="45%"
+            onChange={handleChangeInput}
+          />
+        </VerticalBox>
+        <VerticalBox>
+          <Label>Account Number</Label>
+          <Input
+            name="bank_account_number"
+            defaultValue={profileData ? profileData.bank_account_number : ''}
+            type="text"
+            width="45%"
+            onChange={handleChangeInput}
+          />
+        </VerticalBox>
+        <VerticalBox>
+          <Label>Account Name</Label>
+          <Input
+            name="bank_account_name"
+            defaultValue={profileData ? profileData.bank_account_name : ''}
+            type="text"
+            width="45%"
+            onChange={handleChangeInput}
+          />
+        </VerticalBox>
+        <Button>Save</Button>
+      </Form>
     </BankAccountWrapper>
   );
 };
