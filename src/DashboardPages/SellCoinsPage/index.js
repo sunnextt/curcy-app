@@ -1,37 +1,122 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userSellCoin } from 'redux/slice/tradeDataSlice';
 import CardContext from './Card';
 import SellcoinsContainer from './styled';
 import TradeInputDiv from './Tradecoin';
+import { Button } from './Tradecoin/styled';
+import { ToastContainer, toast } from 'react-toastify';
+import { showErrMsg } from 'utilities/notfication/nofication';
+import { clearMessage } from 'redux/slice/MessageSlice';
 
 const SellcoinsPage = () => {
+  const dispatch = useDispatch();
+  const [inputCheckVal, setInputCheckVal] = useState('');
+  const [inputVal, setInputVal] = useState('');
+  const [inputColor, setinputColor] = useState('#ffffff');
+  const { message } = useSelector(state => state.message);
+  const { sellCoin: sellCoinMessage } = useSelector(state => state.trade);
+  // eslint-disable-next-line no-unused-vars
+  const [successUpdate, setSuccessUpdate] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [successError, setSuccessError] = useState(false);
+
+  console.log(message);
+
+  useEffect(() => {
+    dispatch(clearMessage());
+  }, [dispatch]);
+
+  const handleChangeInput = e => {
+    const { name, value } = e.target;
+    setInputCheckVal({
+      [name]: value,
+    });
+    setinputColor('#fcc700');
+  };
+
+  const handleInput = e => {
+    const { name, value } = e.target;
+    setInputVal({ ...inputVal, [name]: value });
+  };
+
+  const { coin_id } = inputCheckVal;
+  const { naira_amount, usd_amount } = inputVal;
+
+  const notify = () =>
+    // eslint-disable-next-line no-template-curly-in-string
+    toast.success(sellCoinMessage, {
+      position: 'bottom-center',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    dispatch(userSellCoin({ coin_id, naira_amount, usd_amount }))
+      .unwrap()
+      .then(() => {
+        setSuccessUpdate(true);
+        notify();
+      })
+      .catch(() => {
+        setSuccessError();
+      });
+  };
+
   return (
     <SellcoinsContainer>
-      <div className="step_one">
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <form>
+        {message && showErrMsg(message)}
+        <div className="step_one">
+          <div>
+            <h3>Sell Coins</h3>
+            <h5>Step One</h5>
+            <h6 style={{ marginBottom: '2rem' }}>Select the coins you wish to sell below</h6>
+          </div>
+          <div className="card_div">
+            <CardContext handleChangeInput={handleChangeInput} inputColor={inputColor} />
+          </div>
+        </div>
         <div>
-          <h3>Sell Coins</h3>
-          <h5>Step One</h5>
-          <h6 style={{marginBottom: "2rem"}}>Select the coins you wish to sell below</h6>
+          <hr className="divider" />
         </div>
-        <div className="card_div">
-          <CardContext />
-          <CardContext />
-          <CardContext />
-          <CardContext />
+        <div className="step_two">
+          <div>
+            <h5>Step Two</h5>
+            <h6>Amount of Trade.</h6>
+            <p>Enter how much coins in USD you would like to sell, to see how much naira you will recieve.</p>
+          </div>
+          <div>
+            <TradeInputDiv handleChangeInput={handleInput} handleSubmit={handleSubmit} />
+          </div>
         </div>
-      </div>
-      <div>
-        <hr className="divider" />
-      </div>
-      <div className="step_two">
-        <div>
-          <h5>Step Two</h5>
-          <h6>Amount of Trade.</h6>
-          <p>Enter how much coins in USD you would like to sell, to see how much naira you will recieve.</p>
+        <div className="btn_div">
+          <Button type="primary" onClick={handleSubmit}>
+            <h6>Sell Coin</h6>
+          </Button>
+          <p>
+            Funds will be sent to your bank account after transaction is successfully completed by you and processed by
+            us.
+          </p>
         </div>
-        <div>
-          <TradeInputDiv />
-        </div>
-      </div>
+      </form>
     </SellcoinsContainer>
   );
 };

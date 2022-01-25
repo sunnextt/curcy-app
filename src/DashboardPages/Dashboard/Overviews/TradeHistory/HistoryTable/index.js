@@ -1,4 +1,4 @@
-import React, {  useRef } from 'react';
+import React, { useRef } from 'react';
 import Ttable, { StatusDiv } from './styled';
 import { Table } from 'antd';
 
@@ -59,10 +59,9 @@ const HistoryTable = ({ BGcolor, tradeData }) => {
           changeStatus={changeStatus}
           columns={columns}
           dataSource={tradeData}
-          pagination={false}
+          pagination={{ pageSize: 3 }}
         />
       )}
-      ;
     </Ttable>
   );
 };

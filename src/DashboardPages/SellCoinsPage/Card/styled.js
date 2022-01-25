@@ -10,20 +10,28 @@ const CContext = styled.div`
   padding-left: 1.4rem;
   width: 120px;
   height: 120px;
+  cursor: pointer;
+
+  a {
+    cursor: pointer;
+  }
 
   .btcdiv {
     display: flex;
     justify-content: space-between;
     margin: 0 0 10px 0;
+    cursor: pointer;
 
     .icon_btc {
       background: #fff;
       border-radius: 50%;
       border: 1px solid #f7931a;
       color: #f7931a;
+      cursor: pointer;
     }
     .icon_radio {
-      color: #fcc700;
+      color: ${props => props.inputColor || 'palevioletred'};
+      cursor: pointer;
     }
   }
 
@@ -37,6 +45,7 @@ const CContext = styled.div`
       letter-spacing: 0em;
       text-align: left;
       margin: 0;
+      cursor: pointer;
     }
     h4 {
       color: #fff;
@@ -47,7 +56,27 @@ const CContext = styled.div`
       letter-spacing: 0em;
       text-align: left;
       margin: 0;
+      cursor: pointer;
     }
+  }
+
+  [type='radio'] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+  }
+
+  /* IMAGE STYLES */
+  [type='radio'] + img {
+    cursor: pointer;
+  }
+
+  /* CHECKED STYLES */
+  [type='radio']:checked + img {
+    outline: 2px solid #f00;
+    cursor: pointer;
   }
 `;
 

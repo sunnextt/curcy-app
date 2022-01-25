@@ -29,19 +29,6 @@ export const updateUser = createAsyncThunk(
   },
 );
 
-// export const getUserDetails = createAsyncThunk('users/details', async ({ rejectWithValue }) => {
-//   try {
-//     const response = await userService.userProfileDetails();
-//     return response.data;
-//   } catch (err) {
-//     let error = err; // cast the error for access
-//     if (!error.response) {
-//       throw err;
-//     }
-//     return rejectWithValue(error.response.data);
-//   }
-// });
-
 const initialState = {
   profile: {},
   message: {},

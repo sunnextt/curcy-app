@@ -9,32 +9,6 @@ const TradeInputWrap = styled.div`
     width: 100%;
   }
 
-  .btn_div {
-    display: flex;
-    gap: 1.5rem;
-    margin: 3rem 0;
-
-    h6 {
-      font-family: Museo Sans Rounded;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 32px;
-      color: #fcc700;
-      letter-spacing: 0.4px;
-      margin: 0;
-    }
-
-    p {
-      font-size: 10px;
-      line-height: 15px;
-      display: flex;
-      align-items: center;
-      color: #001950;
-      width: 50%;
-    }
-  }
-
   span {
     font-family: Museo Sans Rounded;
     font-style: normal;

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import tradeService from 'services/trade.service';
+import { setMessage } from './MessageSlice';
 
 // eslint-disable-next-line no-empty-pattern
 export const getTrade = createAsyncThunk('users/trade', async ({ yes }, { rejectWithValue }) => {
@@ -30,10 +31,30 @@ export const getTransaction = createAsyncThunk('users/transaction', async ({ yes
   }
 });
 
+export const userSellCoin = createAsyncThunk(
+  'users/sellCoin',
+  async ({ coin_id, naira_amount, usd_amount }, { rejectWithValue, dispatch }) => {
+    try {
+      const response = await tradeService.sellCoin(coin_id, naira_amount, usd_amount);
+      return response;
+    } catch (err) {
+      let error = err; // cast the error for access
+      const message =
+        (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+      if (!error.response) {
+        throw err;
+      }
+      dispatch(setMessage(message));
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
+
 const initialState = {
   trade: {},
   transaction: {},
   error: null,
+  sellCoin: {},
 };
 
 const TradeSlice = createSlice({
@@ -55,6 +76,17 @@ const TradeSlice = createSlice({
       state.transaction = payload.data;
     });
     builder.addCase(getTransaction.rejected, (state, action) => {
+      if (action.payload) {
+        state.error = action.payload.errorMessage;
+      } else {
+        state.error = action.error.message;
+      }
+    });
+    builder.addCase(userSellCoin.fulfilled, (state, { payload }) => {
+      state.sellCoin = payload;
+      state.sellCoin = payload.message;
+    });
+    builder.addCase(userSellCoin.rejected, (state, action) => {
       if (action.payload) {
         state.error = action.payload.errorMessage;
       } else {

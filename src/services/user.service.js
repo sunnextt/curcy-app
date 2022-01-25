@@ -23,6 +23,7 @@ const userProfileData = async (
   return response.data;
 };
 
+
 const userService = {
   userProfileData,
 };
