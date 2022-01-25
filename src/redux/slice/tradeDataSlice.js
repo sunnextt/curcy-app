@@ -42,7 +42,7 @@ const TradeSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(getTrade.fulfilled, (state, { payload }) => {
-      state.trade = payload.data;
+      state.trade = payload;
     });
     builder.addCase(getTrade.rejected, (state, action) => {
       if (action.payload) {
