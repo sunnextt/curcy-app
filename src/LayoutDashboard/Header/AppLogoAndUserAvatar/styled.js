@@ -26,7 +26,7 @@ export const Row = styled(_Row)`
   }
 
   h6 {
-    font-family: Museo Sans;
+    font-family: Museo Sans Rounded;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -63,7 +63,7 @@ export const ContentDiv = styled.div`
   }
 
   h6 {
-    font-family: Museo Sans;
+    font-family: Museo Sans Rounded;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
