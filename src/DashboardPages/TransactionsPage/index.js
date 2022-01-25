@@ -10,17 +10,17 @@ import { useSelector } from 'react-redux';
 
 const TransactionsPage = () => {
 
-  const { trade: UsertradeData } = useSelector(state => state.trade);
+  const { Transaction: UserTransactionData } = useSelector(state => state.trade);
 
-  const { data: tradeSourceData } = UsertradeData;
+  const { data: tradeSourceData } = UserTransactionData || {};
 
-  const [tradeData, setTradeData] = useState('');
+  const [TransactionData, setTransactionData] = useState([]);
 
   useEffect(() => {
     if (tradeSourceData) {
-      setTradeData(tradeSourceData);
+      setTransactionData(tradeSourceData);
     }
-  }, [UsertradeData, tradeData, tradeSourceData]);
+  }, [tradeSourceData]);
 
   return (
     <Container>
@@ -37,7 +37,7 @@ const TransactionsPage = () => {
           <Input style={{ marginLeft: '10px' }} type="text" name="search" placeholder="Search" />
         </div>
       </HeaderContent>
-      <HistoryTable tradeData={tradeData} BGcolor="#F6F9FF" />
+      <HistoryTable tradeData={TransactionData} BGcolor="#F6F9FF" size="10" />
     </Container>
   );
 };

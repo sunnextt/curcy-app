@@ -15,7 +15,7 @@ const TradeHistory = ({ matches, tradeData }) => {
               <Button type="link">view more </Button>
             </div>
             <div className="table_contents">
-              <HistoryTable tradeData={tradeData} />
+              <HistoryTable tradeData={tradeData} size="4"/>
             </div>
           </Card>
         </Col>

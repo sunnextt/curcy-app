@@ -37,7 +37,7 @@ const TradeHistory = () => {
           <Input style={{ marginLeft: '10px' }} type="text" name="search" placeholder="Search" />
         </div>
       </HeaderContent>
-      <HistoryTable tradeData={tradeData} BGcolor="#F6F9FF" />
+      <HistoryTable tradeData={tradeData} BGcolor="#F6F9FF" size="10" />
     </Container>
   );
 };

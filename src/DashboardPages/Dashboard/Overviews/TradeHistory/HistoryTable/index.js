@@ -47,7 +47,7 @@ const columns = [
   },
 ];
 
-const HistoryTable = ({ BGcolor, tradeData }) => {
+const HistoryTable = ({ BGcolor, tradeData, size}) => {
   const changeStatus = useRef(null);
 
   console.log(tradeData);
@@ -59,7 +59,8 @@ const HistoryTable = ({ BGcolor, tradeData }) => {
           changeStatus={changeStatus}
           columns={columns}
           dataSource={tradeData}
-          pagination={{ pageSize: 3 }}
+          pagination={{ pageSize: size }}
+          size="small"
         />
       )}
     </Ttable>
