@@ -73,7 +73,7 @@ const TradeSlice = createSlice({
       }
     });
     builder.addCase(getTransaction.fulfilled, (state, { payload }) => {
-      state.transaction = payload.data;
+      state.transaction = payload;
     });
     builder.addCase(getTransaction.rejected, (state, action) => {
       if (action.payload) {

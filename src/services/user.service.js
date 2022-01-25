@@ -22,10 +22,19 @@ const userProfileData = async (
   });
   return response.data;
 };
-
+const userWithdrawalRequest = async (bank_name, account_name, account_number, amount) => {
+  const response = await CurrenxiApi.post('withdraw/request', {
+    bank_name,
+    account_name,
+    account_number,
+    amount,
+  });
+  return response.data;
+};
 
 const userService = {
   userProfileData,
+  userWithdrawalRequest,
 };
 
 export default userService;

@@ -7,7 +7,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 const VectorImg = () => <img src={Vector} alt="Vector" width="20%" style={{ margin: '0 10px 0 0' }} />;
 
-const WalletBalance = ({ data }) => {
+const WalletBalance = ({ data, handleWithdraw }) => {
   const matches = useMediaQuery('(min-width: 768px)');
 
   const { wallet } = data;
@@ -23,7 +23,14 @@ const WalletBalance = ({ data }) => {
                 <h2>₦ {wallet}</h2>
               </div>
               <div>
-                <Button href="##" type="primary" shape="round" icon={<VectorImg />} size="large">
+                <Button
+                  href="##"
+                  type="primary"
+                  shape="round"
+                  icon={<VectorImg />}
+                  size="large"
+                  onClick={handleWithdraw}
+                >
                   Withdraw
                 </Button>
               </div>

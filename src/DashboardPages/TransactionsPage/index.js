@@ -9,18 +9,20 @@ import HistoryTable from '../Dashboard/Overviews/TradeHistory/HistoryTable';
 import { useSelector } from 'react-redux';
 
 const TransactionsPage = () => {
+  const { transaction: UsertradeData } = useSelector(state => state.trade);
 
-  const { Transaction: UserTransactionData } = useSelector(state => state.trade);
+  const { data: tradeSourceData } = UsertradeData;
 
-  const { data: tradeSourceData } = UserTransactionData || {};
-
-  const [TransactionData, setTransactionData] = useState([]);
+  const [tradeData, setTradeData] = useState('');
 
   useEffect(() => {
     if (tradeSourceData) {
-      setTransactionData(tradeSourceData);
+      setTradeData(tradeSourceData);
     }
-  }, [tradeSourceData]);
+  }, [UsertradeData, tradeData, tradeSourceData]);
+
+
+  console.log(tradeData);
 
   return (
     <Container>
@@ -37,7 +39,7 @@ const TransactionsPage = () => {
           <Input style={{ marginLeft: '10px' }} type="text" name="search" placeholder="Search" />
         </div>
       </HeaderContent>
-      <HistoryTable tradeData={TransactionData} BGcolor="#F6F9FF" size="10" />
+      <HistoryTable tradeData={tradeData} BGcolor="#F6F9FF" size="10" />
     </Container>
   );
 };

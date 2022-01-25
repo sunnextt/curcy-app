@@ -7,23 +7,24 @@ const columns = [
     title: 'NAIRA',
     dataIndex: 'naira_amount',
     render: naira_amount => `₦ ${naira_amount}`,
-    sorter: (a, b) => a.naira_amount.localeCompare(b.naira_amount),
+    align: 'center',
   },
   {
     title: 'USD',
     dataIndex: 'usd_amount',
     render: usd_amount => `$ ${usd_amount}`,
-    sorter: (a, b) => a.usd_amount.localeCompare(b.usd_amount),
+    align: 'center',
   },
   {
     title: 'DATE',
     dataIndex: 'updated_at',
-    render: updated_at => `${updated_at}`,
+    align: 'center',
     sorter: (a, b) => a.updated_at.localeCompare(b.updated_at),
   },
   {
     title: 'STATUS',
     dataIndex: 'status',
+    align: 'center',
     sorter: (a, b) => a.status.localeCompare(b.status),
     render: (_value, { status }) => (
       <div>
@@ -47,7 +48,7 @@ const columns = [
   },
 ];
 
-const HistoryTable = ({ BGcolor, tradeData, size}) => {
+const HistoryTable = ({ BGcolor, tradeData, size }) => {
   const changeStatus = useRef(null);
 
   console.log(tradeData);

@@ -28,11 +28,27 @@ export const updateUser = createAsyncThunk(
     }
   },
 );
+export const userWithdrawalRequest = createAsyncThunk(
+  'users/withdrawal',
+  async ({ bank_name, account_name, account_number, amount }, { rejectWithValue }) => {
+    try {
+      const response = await userService.userWithdrawalRequest(bank_name, account_name, account_number, amount);
+      return response;
+    } catch (err) {
+      let error = err; // cast the error for access
+      if (!error.response) {
+        throw err;
+      }
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
 
 const initialState = {
   profile: {},
   message: {},
   error: null,
+  withdrawal: {},
 };
 
 const updateSlice = createSlice({
@@ -45,6 +61,17 @@ const updateSlice = createSlice({
       state.message = payload.message;
     });
     builder.addCase(updateUser.rejected, (state, action) => {
+      if (action.payload) {
+        state.error = action.payload.errorMessage;
+      } else {
+        state.error = action.error.message;
+      }
+    });
+    builder.addCase(userWithdrawalRequest.fulfilled, (state, { payload }) => {
+      state.withdrawal = payload.data;
+      state.message = payload.message;
+    });
+    builder.addCase(userWithdrawalRequest.rejected, (state, action) => {
       if (action.payload) {
         state.error = action.payload.errorMessage;
       } else {
