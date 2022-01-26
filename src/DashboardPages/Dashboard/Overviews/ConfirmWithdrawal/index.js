@@ -1,12 +1,25 @@
-import { Form, Input, Modal } from 'antd';
+import { Form, Input, Modal, Select } from 'antd';
 import Button from '../../../../components/styledButton';
 import React from 'react';
 import { showErrMsg } from 'utilities/notfication/nofication';
 
 import ModalContent from './styled';
+import { useSelector } from 'react-redux';
+
+const { Option } = Select;
 
 // eslint-disable-next-line react/prop-types
-const ConfirmWithwalModal = ({ error, handleCancel, isModalVisible, handleOk, handleSubmit, handleChangeInput }) => {
+const ConfirmWithwalModal = ({
+  error,
+  handleCancel,
+  isModalVisible,
+  handleOk,
+  handleSubmit,
+  handleChangeInput,
+  handleChange,
+}) => {
+  const { banks: bankLists } = useSelector(state => state.banks);
+
   const footer = null;
   return (
     <Modal footer={footer} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width="40%">
@@ -21,7 +34,30 @@ const ConfirmWithwalModal = ({ error, handleCancel, isModalVisible, handleOk, ha
               <Input placeholder="Account Name" type="text" name="account_name" onChange={handleChangeInput} />
             </div>
             <div className="margin">
-              <Input placeholder="Bank Name" name="bank_name" type="text" onChange={handleChangeInput} />
+              <Select
+                size="large"
+                showSearch
+                onChange={handleChange}
+                style={{ width: '100%' }}
+                placeholder="Bank Name"
+                optionFilterProp="children"
+                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
+                filterSort={(optionA, optionB) =>
+                  optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
+                }
+              >
+                {bankLists ? (
+                  bankLists.map(({ code, name }) => (
+                    <Option key={code} value={code}>
+                      {name}
+                    </Option>
+                  ))
+                ) : (
+                  <div className="margin">
+                    <Input placeholder="Bank Name" name="bank_name" type="text" onChange={handleChangeInput} />
+                  </div>
+                )}
+              </Select>
             </div>
             <div className="margin">
               <Input placeholder="Account Number" name="account_number" type="text" onChange={handleChangeInput} />

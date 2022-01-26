@@ -21,9 +21,6 @@ const TransactionsPage = () => {
     }
   }, [UsertradeData, tradeData, tradeSourceData]);
 
-
-  console.log(tradeData);
-
   return (
     <Container>
       <HeaderContent>

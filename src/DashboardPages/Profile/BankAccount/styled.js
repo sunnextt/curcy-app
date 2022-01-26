@@ -2,6 +2,13 @@ import styled from 'styled-components';
 
 const BankAccountWrapper = styled.div`
   margin: 2rem 0;
+
+  .form_select {
+    width: ${props => props.width};
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
 `;
 
 export const VerticalBox = styled.div`
@@ -53,6 +60,15 @@ export const Input = styled.input`
 export const Label = styled.label`
   font-family: Museo Sans Rounded;
   margin-bottom: 1rem;
+  font-weight: 600;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 24px;
+`;
+export const SelectLabel = styled.label`
+  font-family: Museo Sans Rounded;
+  margin-bottom: 2rem;
   font-weight: 600;
   font-style: normal;
   font-weight: 600;

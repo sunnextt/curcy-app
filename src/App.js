@@ -24,6 +24,7 @@ import ResetPasswordPage from 'Pages/AuthPage/ResetPassword';
 import { useDispatch } from 'react-redux';
 import { getTrade, getTransaction } from 'redux/slice/tradeDataSlice';
 import RequireToken from 'utilities/requireToken';
+import { getBankName } from 'redux/actions/DataAction';
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function App() {
   React.useEffect(() => {
     dispatch(getTransaction({ yes }));
     dispatch(getTrade({ yes }));
+    dispatch(getBankName());
   }, [dispatch, yes]);
 
   return (

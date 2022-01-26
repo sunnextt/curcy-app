@@ -38,6 +38,10 @@ const ModalContent = styled.div`
     font-size: 1rem;
   }
 
+  select {
+    padding: 1rem;
+  }
+
   .withdraw_button {
     margin: 2rem 0 0 0;
   }

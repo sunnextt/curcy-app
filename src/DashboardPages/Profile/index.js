@@ -42,6 +42,7 @@ const ProfilePage = () => {
   const dispatch = useDispatch();
   // eslint-disable-next-line no-unused-vars
   const [successUpdate, setSuccessUpdate] = useState(false);
+  const [bank_name, setBank_name] = useState();
   const { data } = currentUser;
 
   const [profile, setProfile] = useState({
@@ -55,11 +56,15 @@ const ProfilePage = () => {
     bank_account_name: data ? data.bank_account_name : '',
   });
 
-  const { first_name, last_name, email, phone, kyc_verified, bank_name, account_number, bank_account_name } = profile;
+  const { first_name, last_name, email, phone, kyc_verified, account_number, bank_account_name } = profile;
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
+  };
+
+  const handleChange = e => {
+    setBank_name(e.label);
   };
 
   const handleSubmit = async e => {
@@ -119,7 +124,12 @@ const ProfilePage = () => {
           <ParsonalData profileData={data} handleChangeInput={handleChangeInput} handleSubmit={handleSubmit} />
         </TabPanel>
         <TabPanel>
-          <BankAccount profileData={data} handleChangeInput={handleChangeInput} handleSubmit={handleSubmit} />
+          <BankAccount
+            profileData={data}
+            handleChangeInput={handleChangeInput}
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+          />
         </TabPanel>
         <TabPanel>
           <Notification />

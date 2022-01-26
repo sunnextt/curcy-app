@@ -22,7 +22,6 @@ const DashboardPage = () => {
   const matches = useMediaQuery('(min-width: 768px)');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [user, setUser] = useState(initialState);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const { user: currentUser } = useSelector(state => state.auth);
   const { trade: UsertradeData } = useSelector(state => state.trade);
@@ -31,11 +30,12 @@ const DashboardPage = () => {
 
   const [tradeData, setTradeData] = useState('');
   const [data, setData] = useState('');
+  const [bank_name, setBank_name] = useState();
 
   const dispatch = useDispatch();
 
   const notify = () =>
-    toast.success('🦄 Withdrawal Request sucessful', {
+    toast.success('Withdrawal Request sucessful', {
       position: 'bottom-center',
       autoClose: 5000,
       hideProgressBar: false,
@@ -50,7 +50,11 @@ const DashboardPage = () => {
     setUser({ ...user, [name]: value, err: '', success: '' });
   };
 
-  const { bank_name, account_name, account_number, amount } = user;
+  const handleChange = e => {
+    setBank_name(e.label);
+  };
+
+  const { account_name, account_number, amount } = user;
 
   useEffect(() => {
     if (currentUser) {
@@ -83,8 +87,6 @@ const DashboardPage = () => {
     if (isEmpty(bank_name) || isEmpty(account_name) || isEmpty(account_number) || isEmpty(amount)) {
       setError('Please fill all the form field.');
     }
-    setLoading(true);
-
     dispatch(userWithdrawalRequest({ bank_name, account_name, account_number, amount }))
       .unwrap()
       .then(() => {
@@ -92,7 +94,6 @@ const DashboardPage = () => {
         notify();
       })
       .catch(() => {
-        setLoading(false);
       });
   };
 
@@ -103,6 +104,7 @@ const DashboardPage = () => {
         handleCancel={handleCancel}
         handleOk={handleOk}
         handleChangeInput={handleChangeInput}
+        handleChange={handleChange}
         isModalVisible={isModalVisible}
         error={error}
       />

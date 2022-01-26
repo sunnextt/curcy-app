@@ -51,7 +51,6 @@ const columns = [
 const HistoryTable = ({ BGcolor, tradeData, size }) => {
   const changeStatus = useRef(null);
 
-  console.log(tradeData);
   return (
     <Ttable BGcolor={BGcolor}>
       {tradeData && (

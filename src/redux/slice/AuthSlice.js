@@ -65,8 +65,6 @@ export const resetpassword = createAsyncThunk(
                error.message ||
                error.toString();
              thunkAPI.dispatch(setMessage(message));
-             console.log(error);
-             console.log(message);
              return thunkAPI.rejectWithValue();
            }
          },

@@ -8,7 +8,6 @@ export const getTrade = createAsyncThunk('users/trade', async ({ yes }, { reject
     const response = await tradeService.userTradeData({ yes });
     return response;
   } catch (err) {
-    console.log(err);
     let error = err; // cast the error for access
     if (!error.response) {
       throw err;
