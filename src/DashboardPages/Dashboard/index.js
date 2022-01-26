@@ -12,10 +12,10 @@ import { useDispatch } from 'react-redux';
 import { toast, ToastContainer } from 'react-toastify';
 
 const initialState = {
-  password: '',
-  password_confirmation: '',
-  err: '',
-  success: '',
+  account_name: '',
+  account_number: '',
+  amount: '',
+  bank_name: '',
 };
 
 const DashboardPage = () => {
@@ -51,8 +51,10 @@ const DashboardPage = () => {
   };
 
   const handleChange = e => {
-    setBank_name(e.label);
+    setBank_name(e);
   };
+
+  console.log(bank_name);
 
   const { account_name, account_number, amount } = user;
 
@@ -86,14 +88,17 @@ const DashboardPage = () => {
     e.preventDefault();
     if (isEmpty(bank_name) || isEmpty(account_name) || isEmpty(account_number) || isEmpty(amount)) {
       setError('Please fill all the form field.');
+      return
     }
     dispatch(userWithdrawalRequest({ bank_name, account_name, account_number, amount }))
       .unwrap()
       .then(() => {
         setIsModalVisible(false);
+        setError('');
         notify();
       })
       .catch(() => {
+        setError('Enter valid detail');
       });
   };
 

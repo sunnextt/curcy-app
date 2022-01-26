@@ -7,6 +7,13 @@ const WithdrawPageWrapper = styled.section`
   border-radius: 16px;
   padding: 2rem 3rem;
 
+  .form_select {
+    width: 90%;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
   .currency_name {
     background: #ffffff;
     border: 1px solid #cccccc;

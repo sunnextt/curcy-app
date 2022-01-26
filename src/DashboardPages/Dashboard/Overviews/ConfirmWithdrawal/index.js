@@ -22,7 +22,7 @@ const ConfirmWithwalModal = ({
 
   const footer = null;
   return (
-    <Modal footer={footer} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width="40%">
+    <Modal footer={footer} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width="50%">
       <ModalContent>
         <Form>
           {error && showErrMsg(error)}
@@ -48,7 +48,7 @@ const ConfirmWithwalModal = ({
               >
                 {bankLists ? (
                   bankLists.map(({ code, name }) => (
-                    <Option key={code} value={code}>
+                    <Option key={code} value={name}>
                       {name}
                     </Option>
                   ))

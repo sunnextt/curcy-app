@@ -5,6 +5,12 @@ const ModalContent = styled.div`
 
   form {
     width: '100%';
+    font-size: 1.2rem;
+    input {
+      font-size: 1.2rem;
+      color: black;
+    }
+    
   }
   .amount_withdral_div {
     padding: 0 1rem;
