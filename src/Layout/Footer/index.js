@@ -34,7 +34,7 @@ const Footer = () => {
                   flexDirection:"row", 
                   width: '100%'}}
                   >
-                  <p>@ 2021 Currenxi.ng. All rights reserved</p>
+                  <p>@ 2022 currenxi.ng. All rights reserved</p>
                 <SocialIcon className="icon">
                   <AiFillInstagram />
                   <AiFillTwitterSquare />
