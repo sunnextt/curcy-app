@@ -15,13 +15,8 @@ const SellcoinsPage = () => {
   const [inputVal, setInputVal] = useState('');
   const [inputColor, setinputColor] = useState('#ffffff');
   const { message } = useSelector(state => state.message);
-  const { sellCoin: sellCoinMessage } = useSelector(state => state.trade);
-  // eslint-disable-next-line no-unused-vars
-  const [successUpdate, setSuccessUpdate] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [successError, setSuccessError] = useState(false);
-
-  console.log(message);
+  const [, setSuccessUpdate] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     dispatch(clearMessage());
@@ -43,9 +38,9 @@ const SellcoinsPage = () => {
   const { coin_id } = inputCheckVal;
   const { naira_amount, usd_amount } = inputVal;
 
-  const notify = () =>
+  const notify = message =>
     // eslint-disable-next-line no-template-curly-in-string
-    toast.success(sellCoinMessage, {
+    toast.success(message, {
       position: 'bottom-center',
       autoClose: 5000,
       hideProgressBar: false,
@@ -60,12 +55,17 @@ const SellcoinsPage = () => {
 
     dispatch(userSellCoin({ coin_id, naira_amount, usd_amount }))
       .unwrap()
-      .then(() => {
-        setSuccessUpdate(true);
-        notify();
+      .then(response => {
+        if (response) {
+          setSuccessUpdate(true);
+          notify(response.message);
+          setError(false);
+        }
       })
-      .catch(() => {
-        setSuccessError();
+      .catch(error => {
+        if (error) {
+          setError(true);
+        }
       });
   };
 
@@ -83,7 +83,7 @@ const SellcoinsPage = () => {
         pauseOnHover
       />
       <form>
-        {message && showErrMsg(message)}
+        {error && showErrMsg(message)}
         <div className="step_one">
           <div>
             <h3>Sell Coins</h3>

@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import WithdrawPageWrapper, { Button, FlexRow, Form, Input, Label, CNInput, VerticalBox, FlexRowC } from './styled';
 import infologo from '../../assets/dashboard/infologo.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { Select } from 'antd';
 import { toast, ToastContainer } from 'react-toastify';
 import { isEmpty } from 'utilities/validation';
 import { userWithdrawalRequest } from 'redux/slice/userDataSlice';
 import { showErrMsg } from 'utilities/notfication/nofication';
-
-const { Option } = Select;
 
 const initialState = {
   account_name: '',
@@ -17,15 +14,18 @@ const initialState = {
   bank_name: '',
 };
 const WithdrawPage = () => {
-  const { banks: bankLists } = useSelector(state => state.banks);
+  const {
+    user: { data },
+  } = useSelector(state => state.auth);
+
   const [user, setUser] = useState(initialState);
   const [error, setError] = useState('');
-
-  const [bank_name, setBank_name] = useState();
+  const [, setSucessful] = useState('');
+  const [, setBank_name] = useState();
 
   const dispatch = useDispatch();
 
-  const notify = () =>
+  const notify = message =>
     toast.success('Withdrawal Request sucessful', {
       position: 'bottom-center',
       autoClose: 5000,
@@ -46,21 +46,24 @@ const WithdrawPage = () => {
     setBank_name(e);
   };
 
-  const { account_name, account_number, amount } = user;
+  const { amount } = user;
 
-  console.log(bank_name, account_name, account_number, amount);
+  const { first_name, last_name, bank_account_name, bank_account_number, bank_name: bankName } = data;
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (isEmpty(bank_name) || isEmpty(account_name) || isEmpty(account_number) || isEmpty(amount)) {
-      setError('Please fill all the form field.');
-      return
+    if (isEmpty(amount)) {
+      setError('Please fill the form amount field.');
+      return;
     }
-    dispatch(userWithdrawalRequest({ bank_name, account_name, account_number, amount }))
+    dispatch(userWithdrawalRequest({ bankName, bank_account_name, bank_account_number, amount }))
       .unwrap()
-      .then(() => {
-        notify();
+      .then(response => {
+        if (response) {
+          notify(response.message);
+        }
         setError('');
+        setSucessful(true);
       })
       .catch(() => {
         setError('Enter valid detail');
@@ -85,46 +88,47 @@ const WithdrawPage = () => {
         <FlexRow>
           <VerticalBox>
             <Label>Account Name</Label>
-            <Input type="text" name="account_name" width="90%" onChange={handleChangeInput} />
+            <Input
+              type="text"
+              name="account_name"
+              value={bank_account_name ? `${first_name} ${last_name}` : ''}
+              defaultValue={bank_account_name ? `${first_name} ${last_name} ` : ''}
+              placeholder={`${first_name} ${last_name} `}
+              width="90%"
+              onChange={handleChangeInput}
+            />
           </VerticalBox>
           <VerticalBox>
             <Label>Bank Name</Label>
-            <Select
-              size="large"
-              showSearch
+            <Input
+              placeholder={bankName}
+              defaultValue={bankName ? bankName : ''}
+              value={bankName ? bankName : ''}
+              name="account_name"
+              type="text"
               onChange={handleChange}
-              className="form_select"
-              optionFilterProp="children"
-              filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-              filterSort={(optionA, optionB) =>
-                optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
-              }
-            >
-              {bankLists ? (
-                bankLists.map(({ code, name }) => (
-                  <Option key={code} value={name}>
-                    {name}
-                  </Option>
-                ))
-              ) : (
-                <div className="margin">
-                  <Input placeholder="Bank Name" name="account_name" type="text" onChange={handleChange} />
-                </div>
-              )}
-            </Select>{' '}
+            />
           </VerticalBox>
         </FlexRow>
         <VerticalBox>
           <Label>Account Number</Label>
-          <Input type="text" name="account_number" width="45%" onChange={handleChangeInput} />
+          <Input
+            type="text"
+            name="account_number"
+            placeholder={bank_account_number}
+            value={bank_account_number ? bank_account_number : ''}
+            defaultValue={bank_account_number ? bank_account_number : ''}
+            width="45%"
+            onChange={handleChangeInput}
+          />
         </VerticalBox>
         <VerticalBox>
-          <Label>Account Balance</Label>
+          <Label>Withdrawal amount</Label>
           <FlexRowC>
             <div className="currency_name">
               <h6>NGN</h6>
             </div>
-            <CNInput type="text" name="amount" placeholder="203,000" onChange={handleChangeInput} />
+            <CNInput type="text" name="amount" placeholder="1000" onChange={handleChangeInput} />
           </FlexRowC>
         </VerticalBox>
         <Button onClick={handleSubmit}>Withdraw</Button>

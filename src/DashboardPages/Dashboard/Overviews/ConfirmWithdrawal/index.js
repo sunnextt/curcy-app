@@ -1,12 +1,9 @@
-import { Form, Input, Modal, Select } from 'antd';
+import { Form, Input, Modal } from 'antd';
 import Button from '../../../../components/styledButton';
 import React from 'react';
 import { showErrMsg } from 'utilities/notfication/nofication';
 
 import ModalContent from './styled';
-import { useSelector } from 'react-redux';
-
-const { Option } = Select;
 
 // eslint-disable-next-line react/prop-types
 const ConfirmWithwalModal = ({
@@ -16,10 +13,12 @@ const ConfirmWithwalModal = ({
   handleOk,
   handleSubmit,
   handleChangeInput,
-  handleChange,
+  first_name,
+  last_name,
+  bank_account_name,
+  bank_account_number,
+  bank_name,
 }) => {
-  const { banks: bankLists } = useSelector(state => state.banks);
-
   const footer = null;
   return (
     <Modal footer={footer} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width="50%">
@@ -31,36 +30,33 @@ const ConfirmWithwalModal = ({
           </div>
           <div className="margin">
             <div className="margin">
-              <Input placeholder="Account Name" type="text" name="account_name" onChange={handleChangeInput} />
+              <Input
+                name="account_name"
+                value={bank_account_name ? `${first_name} ${last_name}` : ''}
+                defaultValue={bank_account_name ? `${first_name} ${last_name}` : ''}
+                placeholder={`${first_name} ${last_name} `}
+                onChange={handleChangeInput}
+              />
             </div>
             <div className="margin">
-              <Select
-                size="large"
-                showSearch
-                onChange={handleChange}
-                style={{ width: '100%' }}
-                placeholder="Bank Name"
-                optionFilterProp="children"
-                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                filterSort={(optionA, optionB) =>
-                  optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
-                }
-              >
-                {bankLists ? (
-                  bankLists.map(({ code, name }) => (
-                    <Option key={code} value={name}>
-                      {name}
-                    </Option>
-                  ))
-                ) : (
-                  <div className="margin">
-                    <Input placeholder="Bank Name" name="bank_name" type="text" onChange={handleChangeInput} />
-                  </div>
-                )}
-              </Select>
+              <Input
+                placeholder={bank_name}
+                defaultValue={bank_name ? bank_name : ''}
+                value={bank_name ? bank_name : ''}
+                name="bank_name"
+                type="text"
+                onChange={handleChangeInput}
+              />
             </div>
             <div className="margin">
-              <Input placeholder="Account Number" name="account_number" type="text" onChange={handleChangeInput} />
+              <Input
+                name="account_number"
+                placeholder={bank_account_number}
+                value={bank_account_number ? bank_account_number : ''}
+                defaultValue={bank_account_number ? bank_account_number : ''}
+                type="text"
+                onChange={handleChangeInput}
+              />
             </div>
             <div className="margin">
               <Input placeholder="Enter Amount" name="amount" type="text" onChange={handleChangeInput} />

@@ -13,7 +13,7 @@ const TradeInputDiv = ({ handleChangeInput }) => {
             <Select>
               <Option>USD</Option>
             </Select>
-            <Input type="text" name="usd_amount" defaultValue="203000" onChange={handleChangeInput} />
+            <Input type="text" name="usd_amount" placeholder="1000" onChange={handleChangeInput} />
           </div>
         </div>
         <div>
@@ -27,7 +27,7 @@ const TradeInputDiv = ({ handleChangeInput }) => {
             <Select>
               <Option>NGN</Option>
             </Select>
-            <Input type="text" name="naira_amount" defaultValue="203000" onChange={handleChangeInput} />
+            <Input type="text" name="naira_amount" placeholder="50000" onChange={handleChangeInput} />
           </div>
         </div>
       </RateXchangeDiv>

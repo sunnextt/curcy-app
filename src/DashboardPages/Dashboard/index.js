@@ -22,6 +22,7 @@ const DashboardPage = () => {
   const matches = useMediaQuery('(min-width: 768px)');
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [user, setUser] = useState(initialState);
+  const [, setSucessful] = useState('');
   const [error, setError] = useState('');
   const { user: currentUser } = useSelector(state => state.auth);
   const { trade: UsertradeData } = useSelector(state => state.trade);
@@ -30,7 +31,6 @@ const DashboardPage = () => {
 
   const [tradeData, setTradeData] = useState('');
   const [data, setData] = useState('');
-  const [bank_name, setBank_name] = useState();
 
   const dispatch = useDispatch();
 
@@ -50,13 +50,7 @@ const DashboardPage = () => {
     setUser({ ...user, [name]: value, err: '', success: '' });
   };
 
-  const handleChange = e => {
-    setBank_name(e);
-  };
-
-  console.log(bank_name);
-
-  const { account_name, account_number, amount } = user;
+  const { amount } = user;
 
   useEffect(() => {
     if (currentUser) {
@@ -84,18 +78,22 @@ const DashboardPage = () => {
     showModal();
   };
 
+  const { first_name, last_name, bank_account_name, bank_account_number, bank_name } = data;
+
   const handleSubmit = e => {
     e.preventDefault();
-    if (isEmpty(bank_name) || isEmpty(account_name) || isEmpty(account_number) || isEmpty(amount)) {
+    if (isEmpty(amount)) {
       setError('Please fill all the form field.');
-      return
+      return;
     }
-    dispatch(userWithdrawalRequest({ bank_name, account_name, account_number, amount }))
+    console.log(bank_name, bank_account_name, bank_account_number, amount);
+    dispatch(userWithdrawalRequest({ bank_name, bank_account_name, bank_account_number, amount }))
       .unwrap()
       .then(() => {
         setIsModalVisible(false);
         setError('');
         notify();
+        setSucessful(true);
       })
       .catch(() => {
         setError('Enter valid detail');
@@ -105,11 +103,16 @@ const DashboardPage = () => {
   return (
     <>
       <ConfirmWithwalModal
+        first_name={first_name}
+        last_name={last_name}
+        bank_account_name={bank_account_name}
+        bank_account_number={bank_account_number}
+        bank_name={bank_name}
+        amount={amount}
         handleSubmit={handleSubmit}
         handleCancel={handleCancel}
         handleOk={handleOk}
         handleChangeInput={handleChangeInput}
-        handleChange={handleChange}
         isModalVisible={isModalVisible}
         error={error}
       />
