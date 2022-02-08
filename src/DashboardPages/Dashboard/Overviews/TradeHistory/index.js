@@ -7,8 +7,8 @@ import CoinConverter from '../CoinConverter';
 const TradeHistory = ({ matches, tradeData }) => {
   return (
     <TradeHistoryWrapper>
-      <Row gutter={[0, 24]}>
-        <Col xs={24} sm={24} md={24} lg={15} style={{ paddingRight: matches && '30px' }}>
+      <Row gutter={[24, 24]}>
+        <Col xs={24} sm={24} md={24} lg={15}>
           <Card style={{ width: '100%', background: '#EAEFFA', borderRadius: '16px' }}>
             <div className="card_title">
               <h5>Trade History</h5>

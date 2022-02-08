@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import Ttable, { StatusDiv } from './styled';
 import { Table } from 'antd';
+import { formateDate } from 'utilities/formatDate';
 
 const columns = [
   {
@@ -20,6 +21,13 @@ const columns = [
     dataIndex: 'updated_at',
     align: 'center',
     sorter: (a, b) => a.updated_at.localeCompare(b.updated_at),
+    render: (_value, { updated_at }) => {
+      let theDate;
+
+      theDate = formateDate(updated_at);
+
+      return <div>{theDate && theDate}</div>;
+    },
   },
   {
     title: 'STATUS',

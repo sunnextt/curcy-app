@@ -88,6 +88,9 @@ export const FlexRowC = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const Form = styled.form``;

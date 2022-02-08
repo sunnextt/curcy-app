@@ -14,8 +14,8 @@ const WalletBalance = ({ data, handleWithdraw }) => {
 
   return (
     <WalletWrapper>
-      <Row gutter={[0, 24]}>
-        <Col xs={24} sm={24} md={16} lg={15} style={{ paddingRight: matches && '30px' }}>
+      <Row gutter={[24, 24]}>
+        <Col xs={24} sm={24} md={14} lg={15} >
           <Card style={{ width: '100%', background: '#EAEFFA', borderRadius: '16px' }}>
             <div className="card_contents">
               <div>
@@ -37,7 +37,7 @@ const WalletBalance = ({ data, handleWithdraw }) => {
             </div>
           </Card>
         </Col>
-        <Col xs={24} sm={24} md={8} lg={9}>
+        <Col xs={24} sm={24} md={10} lg={9}>
           <ReferReward />
         </Col>
       </Row>

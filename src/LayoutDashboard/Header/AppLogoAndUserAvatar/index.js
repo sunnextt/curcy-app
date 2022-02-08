@@ -61,14 +61,14 @@ const AppLogoAndUserAvatar = ({ matches, onOpen }) => {
                 round
                 className="user_avatar"
                 name={username}
-                size="50px"
+                size={matches ? 50 : 35}
                 color="#C4C4C4"
                 style={{ width: 'auto', height: 'auto' }}
               />
             </span>
           </Popover>
         </h6>
-        <BsBellFill size="36" color="white" className="bell_notification" />
+        <BsBellFill size={matches ? 36 : 26} color="white" className="bell_notification" />
         <CgMenuRight
           size={20}
           color={colors.blue[100]}

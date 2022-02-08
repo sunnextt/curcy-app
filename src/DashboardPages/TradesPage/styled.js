@@ -51,6 +51,9 @@ export const Input = styled.input`
   font-size: 17px;
   line-height: 20px;
   color: #050505;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export default Container;

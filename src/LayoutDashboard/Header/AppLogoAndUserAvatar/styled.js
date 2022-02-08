@@ -3,6 +3,7 @@ import { Row as _Row } from 'antd';
 
 export const Row = styled(_Row)`
   padding: 1rem 7.5rem;
+  position: relative;
   margin: 0;
   display: flex;
   align-items: center;
@@ -23,6 +24,8 @@ export const Row = styled(_Row)`
 
   .menu-icon {
     margin-left: auto;
+    position: absolute;
+    right: 5px;
   }
 
   h6 {
@@ -54,6 +57,10 @@ export const Row = styled(_Row)`
     column-gap: 1rem;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 600px) {
+      font-size: 10px;
+      margin-right: 10px;
+    }
   }
 `;
 

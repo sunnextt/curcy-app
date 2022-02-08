@@ -75,6 +75,10 @@ const SellcoinsContainer = styled.div`
       width: 50%;
     }
   }
+
+  @media screen and (max-width: 600px) {
+padding: 2rem;
+}
 `;
 
 export default SellcoinsContainer;

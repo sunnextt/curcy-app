@@ -7,17 +7,23 @@ import { BsFillCaretDownFill } from 'react-icons/bs';
 
 const content = (
   <div>
-    <Button type="link" style={{fontSize: "16px", fontWeight: "bold", textAlign: "center"}}>7 Days</Button>
-    <Button type="link" style={{fontSize: "16px", fontWeight: "bold", textAlign: "center"}}>14 Days</Button>
-    <Button type="link" style={{fontSize: "16px", fontWeight: "bold", textAlign: "center"}}>1 Month</Button>
+    <Button type="link" style={{ fontSize: '16px', fontWeight: 'bold', textAlign: 'center' }}>
+      7 Days
+    </Button>
+    <Button type="link" style={{ fontSize: '16px', fontWeight: 'bold', textAlign: 'center' }}>
+      14 Days
+    </Button>
+    <Button type="link" style={{ fontSize: '16px', fontWeight: 'bold', textAlign: 'center' }}>
+      1 Month
+    </Button>
   </div>
 );
 
 const TransactionGraph = ({ matches }) => {
   return (
     <TransactionGraphWrapper>
-      <Row gutter={[0, 24]}>
-        <Col xs={24} sm={24} md={16} lg={15} style={{ paddingRight: matches && '30px' }}>
+      <Row gutter={[24, 24]}>
+        <Col xs={24} sm={24} md={24} lg={15} xl={15}>
           <Card size="small" style={{ width: '100%', background: '#EAEFFA', borderRadius: '16px' }}>
             <div className="card_title">
               <h5>Transaction Graph</h5>
@@ -35,7 +41,7 @@ const TransactionGraph = ({ matches }) => {
             </div>
           </Card>
         </Col>
-        <Col xs={24} sm={24} md={8} lg={9}>
+        <Col xs={24} sm={24} md={24} lg={9} xl={9}>
           <AllCryptoNews />
         </Col>
       </Row>

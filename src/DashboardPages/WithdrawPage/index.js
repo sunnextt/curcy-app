@@ -106,6 +106,7 @@ const WithdrawPage = () => {
               value={bankName ? bankName : ''}
               name="account_name"
               type="text"
+              width="90%"
               onChange={handleChange}
             />
           </VerticalBox>

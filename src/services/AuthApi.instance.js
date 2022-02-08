@@ -10,6 +10,3 @@ const instance = axios.create({
 });
 
 export default instance;
-
-// const { data } = ExpirySession.get('user');
-// console.log(data.access_token);

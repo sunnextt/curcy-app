@@ -18,6 +18,10 @@ const TradeInputWrap = styled.div`
     display: flex;
     align-items: center;
     padding-left: 5px;
+
+    @media screen and (max-width: 600px) {
+      line-height: 14px;
+    }
   }
 `;
 export const RateXchangeDiv = styled.div`

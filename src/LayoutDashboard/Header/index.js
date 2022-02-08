@@ -29,7 +29,7 @@ const Header = () => {
         ) : null}
       </Row>
       <Drawer placement="right" closable onClose={onClose} visible={visible}>
-        <Nav orientation="mobile" color="#001950" matches={matches} />
+        <Nav orientation="mobile" color="#001950"/>
       </Drawer>
     </HeaderContainer>
   );
