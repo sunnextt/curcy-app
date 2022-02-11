@@ -29,6 +29,7 @@ export const Col = styled(Col_)`
 
     @media only screen and (max-width: 756px) {
       width: 60%;
+      font-size: 3.2rem;
     }
   }
 `;

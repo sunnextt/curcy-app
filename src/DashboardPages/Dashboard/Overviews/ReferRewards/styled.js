@@ -28,7 +28,7 @@ export const Card = styled(_Card)`
       font-family: Museo Sans Rounded;
       font-style: normal;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 1.42rem;
       line-height: 22px;
       color: #fcc700;
     }

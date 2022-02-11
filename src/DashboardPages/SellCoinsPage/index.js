@@ -13,7 +13,6 @@ const SellcoinsPage = () => {
   const dispatch = useDispatch();
   const [inputCheckVal, setInputCheckVal] = useState('');
   const [inputVal, setInputVal] = useState('');
-  const [inputColor, setinputColor] = useState('#ffffff');
   const { message } = useSelector(state => state.message);
   const [, setSuccessUpdate] = useState(false);
   const [error, setError] = useState('');
@@ -24,16 +23,17 @@ const SellcoinsPage = () => {
 
   const handleChangeInput = e => {
     const { name, value } = e.target;
+    console.log(e);
     setInputCheckVal({
       [name]: value,
     });
-    setinputColor('#fcc700');
   };
 
   const handleInput = e => {
     const { name, value } = e.target;
     setInputVal({ ...inputVal, [name]: value });
   };
+
 
   const { coin_id } = inputCheckVal;
   const { naira_amount, usd_amount } = inputVal;
@@ -49,6 +49,8 @@ const SellcoinsPage = () => {
       draggable: true,
       progress: undefined,
     });
+
+  console.log(coin_id);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -91,7 +93,7 @@ const SellcoinsPage = () => {
             <h6 style={{ marginBottom: '2rem' }}>Select the coins you wish to sell below</h6>
           </div>
           <div className="card_div">
-            <CardContext handleChangeInput={handleChangeInput} inputColor={inputColor} />
+            <CardContext handleChangeInput={handleChangeInput} />
           </div>
         </div>
         <div>

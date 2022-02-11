@@ -4,6 +4,7 @@ import React from 'react';
 import { showErrMsg } from 'utilities/notfication/nofication';
 
 import ModalContent from './styled';
+import { useMediaQuery } from 'usehooks-ts';
 
 // eslint-disable-next-line react/prop-types
 const ConfirmWithwalModal = ({
@@ -19,9 +20,11 @@ const ConfirmWithwalModal = ({
   bank_account_number,
   bank_name,
 }) => {
+
+  const matches = useMediaQuery('(max-width: 600px)')
   const footer = null;
   return (
-    <Modal footer={footer} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width="50%">
+    <Modal footer={footer} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} width={matches?"80%":"50%"}>
       <ModalContent>
         <Form>
           {error && showErrMsg(error)}

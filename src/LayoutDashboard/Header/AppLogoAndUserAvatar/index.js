@@ -5,7 +5,7 @@ import { Popover, Button } from 'antd';
 
 import { ContentDiv, Row } from './styled';
 import Avatar from 'react-avatar';
-import { BsBellFill } from 'react-icons/bs';
+// import { BsBellFill } from 'react-icons/bs';
 
 import { logout } from 'redux/slice/AuthSlice';
 
@@ -68,7 +68,7 @@ const AppLogoAndUserAvatar = ({ matches, onOpen }) => {
             </span>
           </Popover>
         </h6>
-        <BsBellFill size={matches ? 36 : 26} color="white" className="bell_notification" />
+        {/* <BsBellFill size={matches ? 36 : 26} color="white" className="bell_notification" /> */}
         <CgMenuRight
           size={20}
           color={colors.blue[100]}

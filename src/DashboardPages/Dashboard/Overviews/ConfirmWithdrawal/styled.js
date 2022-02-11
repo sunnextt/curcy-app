@@ -10,7 +10,6 @@ const ModalContent = styled.div`
       font-size: 1.2rem;
       color: black;
     }
-    
   }
   .amount_withdral_div {
     padding: 0 1rem;
@@ -20,7 +19,7 @@ const ModalContent = styled.div`
     justify-content: center;
 
     h5 {
-      font-size: 26px;
+      font-size: 2rem;
       font-style: normal;
       font-weight: 600;
       letter-spacing: 0em;
