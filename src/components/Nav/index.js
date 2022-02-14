@@ -8,8 +8,8 @@ const Nav = props => {
     <NavContext>
       <Ul>
         <Li {...props}><Link to="/">Home</Link></Li>
-        <Li {...props}><Link to="">About Us</Link></Li>
-        <Li {...props}><Link to="">F.A.Q</Link></Li>
+        <Li {...props}><a href="#aboutUs">About Us</a></Li>
+        <Li {...props}><a href="#faq">F.A.Q</a></Li>
         <Li {...props}><Link to="/contact">Contact Us</Link></Li>
       </Ul>
     </NavContext>

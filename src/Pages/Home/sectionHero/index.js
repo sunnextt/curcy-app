@@ -5,7 +5,7 @@ import Row from 'components/Row';
 
 const Hero = () => {
   return (
-    <Row>
+    <Row id="home">
       <Col xs={24} sm={24} md={12}>
         <h2>Welcome to Currenxi.ng</h2>
         <h1 className="hero-text--large">Buying & Selling Digital Assets Made Easy</h1>

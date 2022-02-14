@@ -21,7 +21,7 @@ export const HeaderContext = styled(Layout.Header)`
     margin-left: auto;
   }
   .button-group {
-    display: block;
+    display: flex;
     @media only screen and (max-width: 756px) {
       display: none;
     }

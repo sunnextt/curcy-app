@@ -4,7 +4,7 @@ import HeroImg from 'assets/png/hero2.png';
 
 const About = () => {
   return (
-    <Row>
+    <Row id="aboutUs">
       <Col xs={24} sm={24} md={12}>
         <h1>About Currenxi.ng</h1>
         <p>

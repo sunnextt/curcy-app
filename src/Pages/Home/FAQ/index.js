@@ -63,7 +63,7 @@ const answers = [
 const FAQ = () => {
   const [active, setActive] = useState(0);
   return (
-    <Row>
+    <Row id="faq"> 
       <h1>Frequently Asked Questions</h1>
 
       <Col span={24} md={8} flex style={{ justifyContent: 'flex-start' }}>

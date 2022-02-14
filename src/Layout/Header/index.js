@@ -49,7 +49,7 @@ const Header = props => {
             )}
           </Button>
           <Button>
-            {isLoggedIn ? <Link to="/admin">GoTo Dashboard</Link> : <Link to="/signup">Get Started</Link>}
+            {isLoggedIn ? <Link to="/admin">Dashboard</Link> : <Link to="/signup">Get Started</Link>}
           </Button>
         </div>
         <CgMenuRight
@@ -74,7 +74,7 @@ const Header = props => {
           </Link>
         </Button>
         <Button style={{ ...buttonStyle }}>
-          {isLoggedIn ? <Link to="/admin">GoTo Dashboard</Link> : <Link to="/signup">Get Started</Link>}
+          {isLoggedIn ? <Link to="/admin">Dashboard</Link> : <Link to="/signup">Get Started</Link>}
         </Button>
       </Drawer>
     </>

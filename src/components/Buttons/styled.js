@@ -10,6 +10,9 @@ export const ButtonContext = styled(Button)`
   ${({ backgroundcolor, theme }) =>
     `border: 1px solid ${backgroundcolor === 'primary' ? theme.colors.blue[100] : theme.colors.yellow[100]};`}
     border-radius: 6px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 
     &:hover, &:active, &:focus{
         ${({ type, backgroundcolor, theme }) =>
