@@ -5,7 +5,7 @@ import Layout, { ContentContent } from './styled';
 
 const DashboardLayout = ({ children }) => {
   return (
-    <Layout className="dashboard_layout">
+    <Layout>
       <Header />
       <ContentContent>{children}</ContentContent>
       <Footer />

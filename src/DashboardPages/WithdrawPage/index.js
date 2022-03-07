@@ -25,16 +25,16 @@ const WithdrawPage = () => {
 
   const dispatch = useDispatch();
 
-  const notify = message =>
-    toast.success('Withdrawal Request sucessful', {
-      position: 'bottom-center',
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+      const notify = message =>
+        toast.success('Withdrawal Request sucessful', {
+          position: 'bottom-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
 
   const handleChangeInput = e => {
     const { name, value } = e.target;

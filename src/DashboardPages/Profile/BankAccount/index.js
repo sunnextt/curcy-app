@@ -9,6 +9,8 @@ const { Option } = Select;
 const BankAccount = ({ profileData, handleSubmit, handleChangeInput, handleChange }) => {
   const { banks: bankLists } = useSelector(state => state.banks);
 
+  console.log(bankLists);
+
   return (
     <BankAccountWrapper width="45%">
       <Form onSubmit={handleSubmit}>
